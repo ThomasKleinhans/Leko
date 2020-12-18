@@ -1,0 +1,44 @@
+.About {
+
+	.fp-tableCell {
+		height: 100vh;
+		align-items: center;
+
+		@media (max-width: $screen-md) {
+			flex-direction: row;
+		}
+	}
+
+	&-image,
+	&-text {
+		overflow: hidden;
+	}
+
+	&-image {
+		height: 100%;
+		@media (max-width: $screen-xs) {
+			display: none;
+		}
+	}
+
+	&-text {
+		margin: 0 auto;
+		@media (min-width: $screen-md-up) {
+			max-width: 40vw;
+		}
+	}
+
+	&-paragraph {
+		@media (min-width: $screen-sm-up) and (max-width: $screen-md) {
+			font-size: 1rem;
+		}
+		@media (min-width: $screen-xs-up) and (max-width: $screen-sm) {
+			font-size: 0.9375rem;
+		}
+		@media (min-width: $screen-md-up) {
+			font-size: 1.25rem;
+			line-height: 1.5;
+		}
+	}
+
+}

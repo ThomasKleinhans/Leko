@@ -1,0 +1,130 @@
+.Meet {
+
+	&-profiles {
+		position: relative;
+
+		@media (min-width: $screen-xs-up) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		&.is-inactive {
+			pointer-events: none
+		}
+	}
+
+}
+
+.MeetProfile {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+
+	@media (min-width: $screen-md-up) {
+		height: 50%;
+	}
+	@media (max-width: $screen-md) {
+		height: 40vw;
+	}
+	@media (min-width: $screen-xs-up) {
+		width: 50%;
+	}
+	@media (max-width: $screen-xs) {
+		height: 70vw;
+	}
+
+	&-image {
+		@media (max-width: $screen-lg) {
+			position: absolute;
+		}
+	}
+
+	.active & {
+
+		@for $t from 0 through 4 {
+			$t: $t + 1;
+
+			&:nth-child(#{$t}) {
+
+				.Meet-profile-wording {
+					> * {
+						@for $i from 0 through 2 {
+							&:nth-child(#{$i}){
+								@media (min-width: $screen-md-up) {
+									transition-delay: (($t * 150ms) + $i * 300ms + 600ms + 200ms);
+								}
+								@media (max-width: $screen-md) {
+									transition-delay: (($t * 150ms) + $i * 300ms + 200ms);
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+
+	&-wording {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+		pointer-events: none;
+		background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,.3));
+		padding-bottom: 1.5625rem;
+
+		@media (max-width: $screen-lg) {
+			padding-bottom: 1.5625rem;
+		}
+
+		> * {
+			transform: translateY(300%);
+			transition: transform 1.2s $ease-out-quart;
+			will-change: transform;
+
+			.active &,
+			.complete & {
+				transform: translateY(0);
+			}
+		}
+	}
+
+	&-jobTitle {
+		font-size: 1rem;
+		padding-bottom: 0.25rem;
+
+		@media (max-width: $screen-lg){
+			font-size: 0.875rem;
+		}
+	}
+
+	&-quotation {
+		font-size: 0.75rem;
+
+		@media (max-width: $screen-lg) {
+			font-size: 0.625rem;
+		}
+	}
+
+	&-video {
+		z-index: 0;
+		opacity: 0;
+		transition: opacity .4s ease;
+		will-change: opacity;
+
+		&.is-visible {
+			opacity: 1;
+		}
+	}
+}

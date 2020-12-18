@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="81px" viewBox="0 0 80 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>map-pin</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Team" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Contact" transform="translate(-375.000000, -472.000000)">
+            <g id="location">
+                <g id="map">
+                    <g id="map-pin" transform="translate(375.000000, 472.781679)">
+                        <circle id="Oval" fill="#0B2819" cx="40" cy="40" r="40"></circle>
+                        <path d="M40,55 L31.5147186,45.4852814 C29.1715729,42.0375661 28,39.209139 28,37 C28,30.372583 33.372583,25 40,25 C46.627417,25 52,30.372583 52,37 C52,39.209139 50.8284271,42.0375661 48.4852814,45.4852814 L40,55 Z M40,43 C43.3137085,43 46,40.3137085 46,37 C46,33.6862915 43.3137085,31 40,31 C36.6862915,31 34,33.6862915 34,37 C34,40.3137085 36.6862915,43 40,43 Z" id="Combined-Shape" fill="#75ECAD"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

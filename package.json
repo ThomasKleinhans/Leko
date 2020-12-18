@@ -1,0 +1,37 @@
+{
+  "name": "Nuxt",
+  "version": "1.0.0",
+  "description": "My well-made Nuxt.js project",
+  "author": "Olivier Hernandez",
+  "private": true,
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.6"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate && gulp copy",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "body-scroll-lock": "^2.7.1",
+    "contentful": "^7.14.13",
+    "nuxt": "^2.14.7",
+    "vue-carousel": "^0.18.0",
+    "vue-fullpage.js": "^0.1.6",
+    "vue2-google-maps": "^0.10.7"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-gtag": "^1.0.4",
+    "gulp": "^4.0.2",
+    "gulp-svg-sprite": "^1.5.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^1.19.4",
+    "sass-loader": "^7.3.1",
+    "vue": "^2.6.12",
+    "vue-mailchimp-subscribe": "^1.1.0",
+    "vue-server-renderer": "^2.6.12"
+  }
+}

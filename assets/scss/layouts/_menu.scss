@@ -1,0 +1,155 @@
+.Menu {
+	overflow: hidden;
+
+	&-icon {
+		cursor: pointer;
+
+		@media (max-width: $screen-xs) {
+			width: 18px;
+		}
+	}
+
+	&-link {
+		color: white;
+	}
+
+	&-close {
+		position: absolute;
+		top: 40px;
+		right: 40px;
+		cursor: pointer;
+		z-index: 20;
+	}
+
+	&-overlay {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		z-index: 9;
+		display: block;
+		background: black;
+		opacity: .5;
+
+		&.v-enter-active, &.v-leave-active {
+			transition: opacity .8s $ease-out-quart;
+			will-change: opacity;
+			pointer-events: none;
+		}
+		&.v-enter, &.v-leave-to {
+			opacity: 0;
+		}
+	}
+
+	&-nav {
+		display: grid;
+		grid-gap: 20px;
+
+		@media (min-width: $screen-xs-up) {
+			padding: 10vh 9vw;
+		}
+		@media (max-width: $screen-xs) {
+			padding: 10vh 14vw;
+		}
+
+		.nuxt-link-exact-active {
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				background: $color-light-greenish-blue;
+				border-radius: 100%;
+				top: 50%;
+				transform: translateY(-50%);
+				opacity: 1;
+
+				@media (min-width: $screen-xs-up) {
+					width: 10px;
+					height: 10px;
+					left: -25px;
+				}
+				@media (max-width: $screen-xs) {
+					width: 5px;
+					height: 5px;
+					left: -15px;
+				}
+			}
+		}
+
+	}
+
+	&-inner {
+		background: $color-charcoal;
+		position: fixed;
+		z-index: 10;
+		height: 100vh;
+		right: 0;
+		top: 0;
+		color: white;
+		display: grid;
+		grid-template-rows: 1fr max-content;
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+
+		&.v-enter-active {
+			transition: transform .8s $ease-out-quart;
+			will-change: transform;
+		}
+
+		&.v-leave-active {
+			transition: none;
+		}
+
+		&.v-enter, &.v-leave-to {
+			transform: translateX(100%);
+			opacity: 0;
+			& > * {
+				opacity: 0;
+				transform: translateX(5vw);
+			}
+		}
+
+		@media (min-width: $screen-md-up) {
+			width: 50vw;
+		}
+		@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+			width: 80vw;
+		}
+		@media (max-width: $screen-xs) {
+			width: 90vw;
+		}
+
+		& > * {
+			transition: opacity .3s $ease-in-quart .4s, transform .8s $ease-out-quart .4s;
+			will-change: opacity, transform;
+		}
+	}
+
+	&-footer {
+		background: rgba(255,255,255,0.03);
+		display: grid;
+		justify-content: flex-start;
+		grid-auto-rows: max-content;
+		margin-bottom: var(--covid-banner-height);
+
+		@media (min-width: $screen-xs-up) {
+			padding: 10vh 9vw;
+		}
+		@media (max-width: $screen-xs) {
+			padding: 14vw 14vw 20vh;
+		}
+
+		.SubscribeForm {
+			&-fields {
+				height: 50px;
+			}
+			&-input, &-submit {
+				background-color: rgba(255,255,255,0.08);
+			}
+		}
+	}
+
+}

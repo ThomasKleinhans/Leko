@@ -1,0 +1,128 @@
+.Employees {
+	background: $color-charcoal;
+
+	.fp-tableCell {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 6vh 0;
+	}
+
+	&-heading {
+		padding-left: 5vw;
+	}
+
+	&-h {
+		display: inline-block;
+	}
+
+	&-list {
+		color: white;
+
+		.VueCarousel-navigation-button {
+			display: block;
+			width: 60px;
+			height: 60px;
+			border-radius: 100%;
+			background: url(~assets/svg/carousel-arrow.svg) no-repeat center center/20% auto $color-pine-green !important;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-100%) !important;
+			outline: none !important;
+			font-size: 0;
+			opacity: 0;
+
+			.Employees.active & {
+				transition: opacity .3s linear;
+				will-change: opacity;
+
+				@media (min-width: $screen-md-up) {
+					transition-delay: 2000ms + $desktop-delay;
+				}
+				@media (max-width: $screen-md) {
+					transition-delay: 2000ms;
+				}
+			}
+
+			.Employees.active &,
+			.Employees.complete & {
+				opacity: 1;
+			}
+
+			.Employees.complete & {
+				transition-delay: 0s;
+			}
+
+			@media (max-width: $screen-xs) {
+				width: 40px;
+				height: 40px;
+				transform: translateY(-150%) !important;
+			}
+
+			&.VueCarousel-navigation-prev {
+				left: 4vw;
+				transform: translateY(-100%) scaleX(-1) !important;
+
+				@media (max-width: $screen-xs) {
+					width: 40px;
+					height: 40px;
+					transform: translateY(-150%) scaleX(-1) !important;
+				}
+			}
+			&.VueCarousel-navigation-next {
+				right: 4vw;
+			}
+			&.VueCarousel-navigation--disabled {
+				opacity: 0 !important;
+			}
+		}
+
+		.VueCarousel-wrapper {
+			padding-left: 4vw;
+			padding-right: 4vw;
+		}
+	}
+
+	&-listItem {
+		width: 340px;
+		padding: 0 1vw;
+		transform: translateY(140px) rotateY(40deg);
+		opacity: 0;
+		transition: transform 1.2s $ease-out-quart, opacity .3s ease-in;
+		will-change: transform, opacity;
+
+		.active & {
+
+			@for $i from 0 through 5 {
+				&:nth-child(#{$i}){
+					@media (min-width: $screen-md-up) {
+						transition-delay: ($i * 120ms + 600ms + $desktop-delay);
+					}
+					@media (max-width: $screen-md) {
+						transition-delay: ($i * 120ms + 600ms);
+					}
+				}
+			}
+		}
+
+		.active &,
+		.complete & {
+			opacity: 1;
+			transform: translateY(0) rotateY(0deg);
+		}
+	}
+
+	&-listName {
+		word-spacing: 30vw;
+	}
+
+	&-listImg {
+		width: auto;
+		max-width: 100%;
+		margin-bottom: 30px;
+
+		@media (max-width: $screen-xs) {
+			margin-bottom: 20px;
+		}
+	}
+}

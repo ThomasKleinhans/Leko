@@ -1,0 +1,15 @@
+.Sustainability {
+
+	@media (max-width: $screen-md) {
+		padding: 50px 0;
+
+		.fp-tableCell {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-text {
+			order: -1;
+		}
+	}
+}

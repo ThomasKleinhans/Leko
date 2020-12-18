@@ -1,0 +1,100 @@
+.Contact {
+	background: $color-charcoal;
+
+	@media (min-width: $screen-md-up) {
+		min-height: 100vh;
+	}
+
+	& > * {
+		@media (min-width: $screen-md-up) {
+			height: 100vh;
+		}
+	}
+
+	&-map {
+		@media (max-width: $screen-md) {
+			height: 60vh;
+		}
+		@media (min-width: $screen-md-up) {
+			width: 60%;
+		}
+
+		.vue-map-container {
+			height: 100%;
+		}
+
+		&-text {
+			position: absolute;
+			z-index: 20;
+			left: 9vw;
+			color: white;
+			pointer-events: none;
+
+			@media (max-width: $screen-md-up) {
+				bottom: 6vh
+			}
+			@media (min-width: $screen-md-up) {
+				bottom: 10vh;
+			}
+			@media (max-width: $screen-xs) {
+				display: none;
+			}
+		}
+
+	}
+
+	&-text {
+		color: $color-off-white;
+
+		@media (min-width: $screen-md-up) {
+			width: 40%;
+		}
+	}
+
+	&-links {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		a {
+			color: $color-light-greenish-blue;
+			text-decoration: none;
+			position: relative;
+
+			&:hover:after {
+				transform: scaleX(1);
+				transition-timing-function: $ease-out-quart;
+				transform-origin: left;
+			}
+
+			&:after {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 100%;
+				content: "";
+				height: 1px;
+				background: currentColor;
+				transform: scaleX(0);
+				transform-origin: right;
+				transition: transform .5s $ease-in-quart;
+			}
+		}
+	}
+
+	.Map {
+
+		&-infoWindow {
+			padding: 1vh 1vw;
+
+			&-title {
+				font-weight: 500;
+			}
+		}
+
+		div:not([class]) {
+			overflow: unset !important;
+		}
+
+	}
+
+}

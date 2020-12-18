@@ -1,0 +1,164 @@
+.Footer {
+	background: $color-charcoal;
+	padding: 6vh 8.6vw;
+	color: white;
+	position: relative;
+
+	&, .fp-tableCell {
+		width: 100%;
+		display: grid;
+
+		@media (min-width: $screen-md-up) {
+			grid-template-columns: 1fr auto auto;
+			grid-template-rows: repeat(3, max-content);
+		}
+		@media (max-width: $screen-md) {
+			grid-row-gap: 60px;
+			grid-template-columns: max-content 1fr;
+		}
+	}
+
+	&-informations {
+
+		@media (min-width: $screen-md-up) {
+			grid-row: span 2;
+			max-width: calc(340px + 80px);
+			padding-right: 80px;
+		}
+		@media (max-width: $screen-md) {
+			grid-column: span 2;
+			max-width: 280px;
+		}
+	}
+
+	&-link {
+		color: white;
+
+		&.nuxt-link-exact-active {
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: -12px;
+				transform: translateY(-50%);
+				width: 4px;
+				height: 4px;
+				border-radius: 100%;
+				background: $color-light-greenish-blue;
+			}
+		}
+	}
+
+	&-legalLink {
+		font-size: 10px;
+		color: white;
+		display: inline-block;
+	}
+
+	&-form {
+		@media (max-width: $screen-md) {
+			grid-column: span 2;
+			display: grid;
+			justify-content: flex-start;
+		}
+	}
+
+	&-nav {
+		@media (min-width: $screen-lg-up) {
+			padding-right: 10vw;
+		}
+		@media (max-width: $screen-lg) {
+			padding-right: 60px;
+		}
+		@media (min-width: $screen-md-up) {
+			grid-row: span 2;
+			padding-top: 30px;
+		}
+		@media (max-width: $screen-md) {
+			padding-right: 90px;
+		}
+	}
+
+	&-links {
+		display: grid;
+		grid-gap: 12px;
+	}
+
+	&-social {
+		display: grid;
+		grid-gap: 12px 30px;
+		grid-template: max-content / max-content;
+
+		@media (min-width: $screen-md-up) {
+			padding-top: 30px;
+			padding-bottom: 60px;
+			grid-auto-flow: column;
+			justify-content: flex-start;
+		}
+		@media (max-width: $screen-md) {
+			align-content: flex-start;
+		}
+
+		.Footer-link {
+			opacity: .5;
+
+			&:hover {
+				opacity: unset;
+			}
+		}
+	}
+
+	&-bottom {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		@media (min-width: $screen-md-up) {
+			grid-column: span 3;
+		}
+		@media (max-width: $screen-md) {
+			grid-column: span 2;
+		}
+	}
+
+	&-copyright {
+		display: inline-block;
+		font-size: 10px;
+		opacity: .5;
+		text-transform: uppercase;
+	}
+
+
+	&-backToTop {
+		opacity: 0.5;
+		color: white;
+		font-size: 11px;
+		display: flex;
+		align-items: flex-start;
+		cursor: pointer;
+		text-transform: uppercase;
+
+		@media (max-width: $screen-md) and (min-width: $screen-xs-up) {
+			position: absolute;
+			right: 8.6vw;
+			top: 100px;
+		}
+
+		&:hover {
+			opacity: unset;
+
+			.Footer-backToTopIcon {
+				transform: translateY(-30%);
+			}
+		}
+	}
+
+	&-backToTopIcon {
+		margin-left: 10px;
+		will-change: transform;
+		transition: transform .3s $ease-out-quint;
+	}
+}

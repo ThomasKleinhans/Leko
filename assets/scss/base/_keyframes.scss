@@ -1,0 +1,26 @@
+@keyframes video-loading {
+	0% {
+		transform: translate(-50%, -50%) scaleX(0);
+	}
+	80% {
+		transform: translate(-50%, -50%) scaleX(1);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes form-loading {
+	0% {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+	30%, 70% {
+		transform: scaleX(1);
+	}
+	100% {
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+}

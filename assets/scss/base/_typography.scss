@@ -1,0 +1,120 @@
+.h2 {
+	font-size: 2.875rem;
+
+	@media (min-width: $screen-xs-up) and (max-width: $screen-lg) {
+		font-size: 2rem;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 1.4375rem;
+	}
+}
+
+.h3 {
+	font-size: 2rem;
+
+	@media (min-width: $screen-xs-up) and (max-width: $screen-lg) {
+		font-size: 1.625rem;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 1.25rem;
+	}
+}
+
+.h4 {
+	font-size: 1.625rem;
+
+	@media (min-width: $screen-xs-up) and (max-width: $screen-lg) {
+		font-size: 1.125rem;
+	}
+	@media (max-width: $screen-xs) {
+		font-size: 0.8125rem;
+	}
+}
+
+.h5{
+	@extend .Paragraph;
+	font-weight: 300;
+}
+
+.Paragraph, .List {
+	font-size: 0.9375rem;
+	line-height: 1.5;
+
+	@media (max-width: $screen-lg) {
+		font-size: 0.8125rem;
+	}
+
+	strong{
+		font-weight: 600;
+	}
+}
+
+.Paragraph {
+	&--smaller {
+		font-size: 0.8125rem;
+	}
+}
+
+.List {
+	li {
+		position: relative;
+		padding-left: 14px;
+
+		+ li {
+			margin-top: 0.3125rem;
+		}
+
+		&:before {
+			transform: scale(1.5);
+			top: 2px;
+			content: "• ";
+			left: 0;
+			position: absolute;
+		}
+	}
+}
+
+.Subhead {
+	font-size: 0.625rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+
+.TextAnimation {
+	perspective: 1500px;
+	perspective-origin: center;
+	> *{
+		opacity: 0;
+		transition: opacity .35s $ease-in-quart, transform 1.2s $ease-out-quart;
+		transform-origin: center center;
+		will-change: transform, opacity;
+
+		@media (min-width: $screen-md-up) {
+			transform: translateY(140px) rotateY(55deg);
+		}
+		@media (max-width: $screen-md) {
+			transform: translateY(140px) rotateY(75deg);
+		}
+
+		.active & {
+			@for $i from 0 through 3 {
+				&:nth-child(#{$i}){
+					@media (min-width: $screen-md-up) {
+						transition-delay: ($i * 180ms + $desktop-delay);
+					}
+					@media (max-width: $screen-md) {
+						transition-delay: ($i * 180ms);
+					}
+				}
+			}
+		}
+
+		.active &,
+		.complete & {
+			opacity: 1;
+			transform: translateY(0) rotateY(0deg);
+		}
+	}
+}

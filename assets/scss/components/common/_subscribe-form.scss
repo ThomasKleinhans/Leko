@@ -1,0 +1,156 @@
+.SubscribeForm {
+
+	&.is-loading {
+		position: relative;
+
+		&:after {
+			content: "";
+			width: 100%;
+			height: 1px;
+			background-color: $color-light-greenish-blue;
+			position: absolute;
+			top: 100%;
+			animation: form-loading 2s $ease-in-out-quart forwards;
+		}
+
+		.SubscribeForm-submit {
+			pointer-events: none;
+			cursor: initial;
+		}
+	}
+
+	&-fields {
+		display: grid;
+		grid-auto-flow: column;
+		grid-gap: 2px;
+		height: 40px;
+		position: relative;
+	}
+	&-label {
+		display: block;
+		margin-bottom: 0.9375rem;
+	}
+	&-input {
+		font-size: 12px;
+		padding-left: 15px;
+		padding-right: 15px;
+		height: 100%;
+		min-width: 100px;
+		font-family: $font-riposte;
+		font-weight: 300;
+		background-color: rgba(255,255,255, .05);
+		color: white;
+
+		@media (max-width: $screen-xs) {
+			max-width: 220px;
+		}
+		@media (min-width: $screen-xs-up) {
+			width: 220px;
+		}
+
+		&:not(:placeholder-shown) {
+			~ .SubscribeForm-status {
+				background-color: rgba(255,255,255,0.2);
+			}
+			&:valid {
+				+ .SubscribeForm-submit {
+					color: $color-light-greenish-blue;
+					cursor: pointer;
+					pointer-events: initial;
+
+					.has-error & {
+						color: rgba(255,255,255, .15);
+					}
+
+					&:hover {
+						color: $color-charcoal;
+					}
+				}
+				~ .SubscribeForm-status {
+					background-color: $color-light-greenish-blue;
+				}
+			}
+		}
+	}
+	&-submit {
+		font-size: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		height: 100%;
+		font-family: $font-riposte;
+		font-weight: 500;
+		background-color: rgba(255,255,255, .05);
+		pointer-events: none;
+		color: rgba(255, 255, 255, 0.15);
+		position: relative;
+		transition: color .05s linear .1s;
+
+		&:before {
+			content: "";
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: $color-light-greenish-blue;
+			display: block;
+			position: absolute;
+			transform: scaleX(0);
+			transform-origin: right;
+			transition: transform .25s $ease-in-out-quart;
+			will-change: transform;
+		}
+
+		&:hover {
+			color: $color-charcoal;
+
+			&:before {
+				transform: scaleX(1);
+				transform-origin: left;
+			}
+		}
+	}
+
+	&-status {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		border-radius: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		right: calc(100% + 10px);
+		transition: background-color .15s linear;
+
+		.has-error & {
+			background-color: $color-red-orange !important;
+		}
+	}
+
+	&-feedback {
+		font-size: 11px;
+		position: absolute;
+		top: calc(100% + 10px);
+		left: 2px;
+
+		&.v-enter-active, &.v-leave-active {
+		  transition: opacity .2s linear, transform .6s $ease-out-quart;
+		}
+		&.v-enter, &.v-leave-to{
+		  opacity: 0;
+		  transform: translateY(-10px);
+		}
+
+		a {
+			color: currentColor;
+			text-decoration: underline;
+		}
+
+		&--success {
+			color: $color-light-greenish-blue;
+		}
+		&--error {
+			color: $color-red-orange;
+		}
+	}
+}

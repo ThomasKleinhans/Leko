@@ -1,0 +1,12 @@
+$colors: (
+	'offWhite': $color-off-white,
+	'pineGreen': $color-pine-green,
+	'charcoal': $color-charcoal,
+	'lightGreenishBlue': $color-light-greenish-blue
+);
+
+@each $color-name, $color-code in $colors {
+	.u-color-#{$color-name}{
+		color: $color-code;
+	}
+}

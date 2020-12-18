@@ -1,0 +1,123 @@
+.Hero {
+	color: white;
+	background: $color-charcoal;
+
+	&, .fp-tableCell {
+		@media (min-width: $screen-md-up) {
+			height: 100vh !important;
+		}
+		@media (max-width: $screen-md) {
+			height: 90vh !important;
+		}
+	}
+
+	&-inner {
+		perspective: 1500px;
+		perspective-origin: center;
+		padding: 130px;
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+
+		@media (min-width: $screen-md-up) {
+			height: 100vh !important;
+		}
+		@media (max-width: $screen-md) {
+			height: 90vh !important;
+		}
+
+		@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+			padding: 90px;
+		}
+		@media (max-width: $screen-md) {
+			padding: 50px 8.6vw;
+		}
+		@media (min-width: $screen-xs) and (max-width: 700px) and (orientation: landscape) {
+			padding: 50px 30px 70px;
+		}
+
+		& > * {
+			opacity: 0;
+			transition: opacity .5s $ease-in-quart, transform 1.6s $ease-out-quart;
+			transform: translateY(200px) rotateY(40deg);
+			transform-origin: center center;
+			will-change: transform, opacity;
+			text-shadow: 0 0 100px rgba(0,0,0,.4);
+		}
+
+		&.video-loaded {
+			@for $i from 1 through 4 {
+				& > :nth-child(#{$i}) {
+					opacity: 1;
+					transform: translateY(0) rotateY(0);
+					transition-delay: ($i * 200ms + 250);
+				}
+			}
+		}
+
+	}
+
+	&-video {
+		&.v-enter-active, &.v-leave-active {
+		  transition: opacity .4s linear, transform 2.4s $ease-out-quart .2s;
+		  will-change: opacity, transform;
+		}
+		&.v-enter, &.v-leave-to {
+		  opacity: 0;
+		  transform: scale(1.3);
+		}
+	}
+
+	&-title {
+		font-size: 5.9vw;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	&-label {
+		font-size: 1.6vw;
+		letter-spacing: .16vw;
+		font-weight: 800;
+		text-transform: uppercase;
+		display: block;
+		margin-bottom: 25px;
+
+		@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+			font-size: 0.8125rem;
+		}
+		@media (max-width: $screen-xs) {
+			font-size: 0.75rem;
+			margin-bottom: 10px;
+		}
+
+	}
+
+	&-cta {
+		color: white;
+		display: flex;
+		align-items: center;
+		font-weight: 300;
+		text-decoration: none;
+		padding-top: 1.875rem;
+
+		@media (max-width: $screen-lg) {
+			font-size: 0.8125rem;
+		}
+
+		&:before {
+			content: "";
+			width: 24px;
+			height: 24px;
+			background: url(~assets/svg/player.svg) no-repeat top left/100% auto;
+			margin-right: 10px;
+
+			@media (max-width: $screen-lg) {
+				width: 21px;
+				height: 21px;
+			}
+		}
+	}
+
+}

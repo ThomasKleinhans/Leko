@@ -1,0 +1,73 @@
+.Modal {
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.8);
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
+	@media (max-width: $screen-md){
+		position: fixed;
+	}
+	@media (min-width: $screen-md-up){
+		position: absolute;
+	}
+
+	&.v-enter-active, &.v-leave-active {
+	  transition: opacity .3s;
+	  will-change: opacity;
+	}
+	&.v-enter, &.v-leave-to {
+	  opacity: 0;
+	}
+
+	&-content {
+		background: $color-charcoal;
+		width: 80vw;
+		position: relative;
+		margin: auto;
+		padding-bottom: 45%;
+
+		&.v-enter-active, &.v-leave-active {
+	  	transition: transform .8s $ease-out-quart .4s, opacity .3s linear .4s;
+	  	will-change: transform, opacity;
+		}
+		&.v-enter, &.v-leave-to {
+		  opacity: 0;
+		  transform: scale(.9);
+		}
+	}
+
+	&-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&-loading {
+		&:before, &:after {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 50%;
+			z-index: -1;
+			transform: translate(-50%, -50%);
+			transform-origin: left;
+			height: 2px;
+			width: 200px;
+			background: rgba(255,255,255,.2);
+		}
+		&:after {
+			background: white;
+			animation: video-loading 2s ease infinite;
+			will-change: transform, opacity;
+		}
+	}
+}

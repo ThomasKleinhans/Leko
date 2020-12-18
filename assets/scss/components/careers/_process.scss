@@ -1,0 +1,129 @@
+.Process {
+
+	&-inner {
+		padding-top: 6vh;
+		padding-bottom: 6vh;
+
+		@media (max-width: $screen-md) {
+			padding-left: 7.6vw;
+			padding-right: 7.6vw;
+		}
+	}
+
+
+	&-subhead {
+		font-weight: 800;
+
+		@media (min-width: $screen-lg-up) {
+			font-size: 0.875rem;
+		}
+	}
+
+	&-text {
+		max-width: 660px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 0;
+
+		@media (max-width: $screen-lg) {
+			max-width: 520px;
+		}
+	}
+
+	&-paragraph {
+		font-weight: 300;
+	}
+}
+
+.ProcessList {
+	display: flex;
+	justify-content: center;
+	padding: 7vh 1.3vw 0;
+
+	@media (max-width: $screen-xs) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@media (max-width: $screen-md) {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&-item {
+		max-width: calc(220px + 2.6vw);
+		padding: 0 1.3vw;
+		flex: 1;
+		counter-increment: process-number;
+		opacity: 0;
+		transform: translateY(120px);
+		transition: opacity .3s linear, transform 1s $ease-out-quart;
+		will-change: opacity, transform;
+
+		@media (max-width: $screen-md) {
+			max-width: calc(450px + 2.6vw);
+		}
+
+		.active &,
+		.complete & {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		@for $i from 0 through 5 {
+			&:nth-child(#{$i}){
+				@media (min-width: $screen-md-up) {
+					transition-delay: ($i * 120ms + $desktop-delay + 1000ms);
+				}
+				@media (max-width: $screen-md) {
+					transition-delay: ($i * 120ms + 1000ms);
+				}
+			}
+		}
+
+		&:before {
+			content: "0" counter(process-number);
+			font-size: 6.25rem;
+			opacity: .08;
+			display: block;
+			font-weight: 200;
+			letter-spacing: -2px;
+			margin-left: -10px;
+			line-height: 1;
+			margin-bottom: 0.3125rem;
+
+			@media (max-width: $screen-lg) {
+				font-size: 80px;
+			}
+			@media (max-width: $screen-md) {
+				margin-bottom: -55px;
+			}
+		}
+	}
+
+	&-itemTitle {
+		@media (min-width: $screen-lg-up) {
+			font-size: 1.5rem;
+		}
+		@media (max-width: $screen-lg) {
+			font-size: 1.375rem;
+		}
+		@media (max-width: $screen-md) {
+			padding-left: 60px;
+		}
+		@media (max-width: $screen-xs) {
+			padding-left: 20px;
+		}
+	}
+
+	&-itemParagraph {
+		opacity: .6;
+
+		@media (max-width: $screen-md) {
+			padding-left: 60px;
+		}
+		@media (max-width: $screen-xs) {
+			padding-left: 20px;
+		}
+	}
+}

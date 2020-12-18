@@ -1,0 +1,108 @@
+.Technology {
+
+	.fp-tableCell {
+		@media (max-width: $screen-md) {
+			flex-direction: unset;
+		}
+		@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+			min-height: 600px;
+		}
+		@media (max-width: $screen-xs) {
+			flex-direction: column;
+		}
+	}
+
+	&-text {
+		@media (min-width: $screen-md-up) {
+			padding-top: 12vh !important;
+		}
+	}
+
+}
+
+.TechnologyTimer {
+
+	@media (min-width: $screen-lg-up) {
+		margin-bottom: 3.125rem;
+	}
+	@media (max-width: $screen-lg) {
+		margin-bottom: 1.875rem;
+	}
+
+	&-list {
+		position: relative;
+		margin-bottom: 45px;
+	}
+
+	&-listItem {
+		color: $color-pine-green;
+		height: 20px;
+		overflow: hidden;
+		display: block;
+		width: 100%;
+		position: absolute;
+
+		span {
+			position: absolute;
+		}
+
+		.timer {
+			&.v-enter-active, &.v-leave-active {
+				transition: transform 1.4s $ease-in-out-quint;
+				will-change: transform;
+			}
+
+			&.v-enter {
+				transform: translateY(-100%);
+			}
+
+			&.v-leave-to {
+				transform: translateY(100%);
+			}
+
+			&.v-leave, &.v-enter-to {
+				transform: translateY(0);
+			}
+		}
+	}
+
+	&-lines {
+		display: flex;
+	}
+
+	&-linesItem {
+		width: 90px;
+		height: 1px;
+		background-color: rgba(11, 40, 25, .2);
+		position: relative;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 0;
+			height: 100%;
+			position: absolute;
+			background-color: $color-pine-green;
+			will-change: width;
+		}
+
+
+		&.is-active {
+			&:before {
+				width: 100%;
+				transition: width var(--delai) linear, opacity 0s linear;
+			}
+		}
+
+		&.is-finished {
+			&:before {
+				width: 100%;
+			}
+		}
+
+		&:not(:first-child) {
+			margin-left: 10px;
+		}
+	}
+
+}

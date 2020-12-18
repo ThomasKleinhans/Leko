@@ -1,0 +1,199 @@
+.LayoutTwo {
+
+	&-dark {
+		background-color: $color-charcoal;
+		color: white;
+	}
+
+	&-media {
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+	}
+
+	&-text {
+		@extend .TextAnimation;
+		display: grid;
+		grid-auto-rows: max-content;
+		grid-row-gap: 1.875rem;
+
+		@media (max-width: $screen-md){
+			padding: 50px 8.6vw;
+		}
+	}
+
+	&-paragraphs {
+		display: grid;
+		grid-gap: 1.25rem 2vw;
+	}
+
+	&-split {
+		@media (max-width: $screen-md) and (min-width: $screen-xs-up) {
+			display: grid;
+			grid-auto-flow: column;
+			grid-auto-columns: 1fr;
+			grid-gap: 2vw;
+		}
+		header {
+			@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+				margin-top: -.5rem;
+			}
+		}
+	}
+
+	&-horizontal {
+
+		.LayoutTwo-size30{
+			@media (min-width: $screen-md-up) {
+				height: calc( 100vh * 1/3 );
+			}
+		}
+
+		.LayoutTwo-size70{
+			@media (min-width: $screen-md-up) {
+				height: calc( 100vh * 2/3 );
+			}
+		}
+
+		.LayoutTwo-size50{
+			@media (min-width: $screen-xs-up) {
+				height: 50%;
+			}
+		}
+
+		.LayoutTwo-text {
+			display: grid;
+
+			@media (min-width: $screen-md-up) {
+				height: calc( 100vh * 1/3 );
+				padding: 6vh 9vw;
+				grid-column-gap: 4vw;
+				grid-template-columns: fit-content(50%) auto;
+			}
+			@media (max-width: $screen-md) {
+				grid-column-gap: 2vw;
+			}
+			@media (min-width: $screen-xs-up){
+				grid-auto-flow: column;
+				grid-auto-columns: 1fr;
+			}
+		}
+
+		.LayoutTwo-paragraphs {
+			@media (min-width: $screen-md-up) {
+				grid-auto-flow: column;
+				max-width: 48vw;
+				margin: auto;
+			}
+		}
+
+		header, .Paragraph {
+			max-width: 480px;
+		}
+
+		header {
+			@media (min-width: $screen-xs-up) {
+				margin-top: -.5rem;
+			}
+		}
+
+	}
+
+	&-vertical {
+
+		> * {
+			display: flex;
+
+			@media (max-width: $screen-md) {
+				flex-direction: column;
+				flex-wrap: wrap;
+			}
+		}
+
+		.LayoutTwo-size30 {
+			@media (min-width: $screen-lg-up) {
+				width: calc( 100% * 1/3 );
+			}
+			@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+				width: 40%;
+			}
+		}
+
+		.LayoutTwo-size70 {
+			@media (min-width: $screen-lg-up) {
+				width: calc( 100% * 2/3 );
+			}
+			@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+				width: 60%;
+			}
+		}
+
+		.LayoutTwo-size50 {
+			@media (min-width: $screen-xs-up) {
+				width: 50%;
+			}
+			@media (max-width: $screen-xs) {
+				width: 100%;
+			}
+		}
+
+		.LayoutTwo-text {
+			@media (min-width: $screen-lg-up) {
+				padding: 20vh 4.8vw;
+			}
+			@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+				padding: 16vh 3.4vw;
+			}
+
+		}
+
+	}
+
+	@media (max-width: $screen-md) {
+		&-mobileMask {
+			position: relative;
+
+			&:before {
+				content: "";
+				display: block;
+				height: 100%;
+				width: 100%;
+				transform: scaleX(1);
+				z-index: 1;
+				position: absolute;
+				transform-origin: right;
+				background: white;
+				transition: transform 1.2s $ease-in-out-quart;
+				will-change: transform;
+
+				.LayoutTwo-dark & {
+					background: $color-charcoal;
+				}
+
+				.complete & {
+					transform: scaleX(0);
+				}
+			}
+
+			&--fromLeft {
+				&:not(.LayoutTwo-mobileMask--full) {
+					margin-right: 8.6vw;
+				}
+				&:before {
+					transform-origin: right;
+				}
+			}
+
+			&--fromRight {
+				&:not(.LayoutTwo-mobileMask--full) {
+					margin-left: 8.6vw;
+				}
+				&:before {
+					transform-origin: left;
+				}
+			}
+
+		}
+	}
+}
+

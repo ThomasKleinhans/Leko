@@ -1,0 +1,57 @@
+<svg width="92px" height="92px" viewBox="0 0 92 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<defs>
+				<circle id="path-1" cx="32" cy="32" r="32"></circle>
+				<filter x="-32.8%" y="-32.8%" width="165.6%" height="165.6%" filterUnits="objectBoundingBox" id="filter-2">
+						<feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+						<feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+						<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.199699955 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+				</filter>
+				<circle id="path-3" cx="32" cy="32" r="24"></circle>
+				<filter x="-43.8%" y="-43.8%" width="187.5%" height="187.5%" filterUnits="objectBoundingBox" id="filter-4">
+						<feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+						<feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+						<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.199699955 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+				</filter>
+				<circle id="path-5" cx="32" cy="32" r="16"></circle>
+				<filter x="-65.6%" y="-65.6%" width="231.2%" height="231.2%" filterUnits="objectBoundingBox" id="filter-6">
+						<feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+						<feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+						<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.199699955 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+				</filter>
+				<circle id="path-7" cx="32" cy="32" r="8"></circle>
+				<filter x="-131.2%" y="-131.2%" width="362.5%" height="362.5%" filterUnits="objectBoundingBox" id="filter-8">
+						<feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+						<feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+						<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.199699955 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+				</filter>
+		</defs>
+		<g id="dots" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g id="oval01">
+						<g id="Oval-Copy" opacity="0.602143787">
+								<use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+								<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
+						</g>
+				</g>
+				<g id="oval02" transform="translate(32, 32)">
+						<circle id="Oval" opacity="0.15" cx="0" cy="0" r="32" fill="#fff">
+								<animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="0s" dur="3s" repeatCount="indefinite" />
+								<animate attributeName="opacity" from=".5" to="0" begin="0s" dur="3s" repeatCount="indefinite" />
+								<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+						</circle>
+				</g>
+				<g id="oval03" transform="translate(32, 32)">
+						<circle id="Oval" opacity="0.15" cx="0" cy="0" r="32" fill="#fff">
+								<animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="1s" dur="3s" repeatCount="indefinite" />
+								<animate attributeName="opacity" from=".5" to="0" begin="1s" dur="3s" repeatCount="indefinite" />
+								<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+						</circle>
+				</g>
+				<g id="oval04" transform="translate(32, 32)">
+						<circle id="Oval" opacity="0.15" cx="0" cy="0" r="32" fill="#fff">
+								<animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="2s" dur="3s" repeatCount="indefinite" />
+								<animate attributeName="opacity" from=".5" to="0" begin="2s" dur="3s" repeatCount="indefinite" />
+								<use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+						</circle>
+				</g>
+		</g>
+</svg>

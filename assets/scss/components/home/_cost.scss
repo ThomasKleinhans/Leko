@@ -1,0 +1,38 @@
+.Cost {
+
+	@media (max-width: $screen-md) {
+		padding-top: 50px;
+	}
+
+	&-text {
+		@media (max-width: $screen-md) {
+			order: -1;
+		}
+	}
+
+	&-image {
+		@media (max-width: $screen-md) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&-stats {
+		@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+			padding-top: 50px;
+		}
+	}
+
+	&-statsItem {
+		@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+			margin: 0 10px;
+			&:before {
+				display: none;
+			}
+			span {
+				width: 150px;
+			}
+		}
+	}
+
+}

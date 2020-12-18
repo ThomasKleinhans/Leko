@@ -1,0 +1,35 @@
+.Legal {
+	background: $color-charcoal;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	&-inner {
+		padding: 10vh 7.6vw 6vh;
+
+		@media (max-width: $screen-md) {
+			padding-top: 16vh;
+		}
+
+		@media (min-width: $screen-xs-up) {
+			margin: auto;
+		}
+	}
+
+	&-row {
+		grid-gap: 20px 60px;
+		display: grid;
+
+		@media (min-width: $screen-xs-up) {
+			grid-template: max-content / repeat(2, max-content);
+		}
+
+		& > :first-child {
+			@media (min-width: $screen-xs-up) {
+				grid-row: span 2;
+			}
+		}
+	}
+
+}

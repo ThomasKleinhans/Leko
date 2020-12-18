@@ -1,0 +1,317 @@
+.Jobs	{
+	background: $color-charcoal;
+	color: white;
+
+	&-inner {
+		padding: 6vh 7.6vw;
+
+		@media (max-width: $screen-md) {
+			padding-bottom: 15vw;
+		}
+		@media (min-width: $screen-md-up) {
+			min-height: 101vh;
+			padding-bottom: 30vh;
+		}
+	}
+
+	// Filters //
+
+	&-filter {
+		display: block;
+		user-select: none;
+		margin-bottom: 5rem;
+		position: relative;
+		z-index: 1;
+		opacity: 0;
+		transform: scale(.9) translateY(120px);
+		transform-origin: top;
+		transition: opacity .3s linear, transform 1s $ease-out-quart;
+		will-change: opacity, transform;
+
+		@media (max-width: $screen-lg) {
+			margin-bottom: 3.125rem;
+		}
+
+		.active & {
+
+			@media (max-width: $screen-md) {
+				transition-delay: (1000ms - $desktop-delay), (1000ms - $desktop-delay);
+			}
+			@media (min-width: $screen-md-up) {
+				transition-delay: 1s, 1s;
+			}
+		}
+
+		.active &,
+		.complete & {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+	&-filterCurrent {
+		@extend .Paragraph;
+		display: block;
+		color: $color-light-greenish-blue;
+		border-bottom: 1px solid rgba(255,255,255,.2);
+		padding: 6px 0;
+		cursor: pointer;
+
+		&.is-open:after {
+			transform: translate(-3px, calc(-50% + 3px)) rotate(-135deg);
+		}
+
+		&:after {
+			content: "";
+			border: solid $color-light-greenish-blue;
+			border-width: 0 1px 1px 0;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(-3px, -50%) rotate(45deg);
+			display: inline-block;
+			padding: 3px;
+		}
+	}
+
+	&-filterList {
+		position: absolute;
+		font-size: 0.8125rem;
+		top: calc(100% + 10px);
+		display: block;
+		width: 100%;
+		background: lighten($color-charcoal, 2%);
+		padding: 0 15px;
+		border-radius: 2px;
+		box-shadow: 0 8px 0 0 $color-charcoal;
+
+		&.v-enter-active, &.v-leave-active {
+			transition: opacity .3s $ease-out-quart, transform .6s $ease-out-quart;
+			transform: translateY(0) scale(1);
+			transform-origin: bottom;
+		}
+
+		&.v-enter, &.v-leave-to {
+			opacity: 0;
+			pointer-events: none;
+			transform: translateY(-20px) scale(1.02);
+		}
+
+	}
+
+	&-filterListItem {
+		padding: 14px 0;
+		cursor: pointer;
+		display: block;
+		border-bottom: 1px solid $color-charcoal;
+
+		&:hover{
+			color: $color-light-greenish-blue;
+		}
+	}
+	// End Filters //
+}
+
+.Job {
+	margin-bottom: 0rem;
+	opacity: 0;
+	transform: translateY(140px);
+	transition: opacity .3s $ease-in-quart, transform 1s $ease-out-quart;
+	will-change: transform, opacity;
+
+	.active & {
+
+		@for $i from 0 through 20 {
+			&:nth-child(#{$i}){
+				@media (min-width: $screen-md-up) {
+					transition-delay: ($i * 120ms + $desktop-delay + 650ms);
+				}
+				@media (max-width: $screen-md) {
+					transition-delay: ($i * 120ms + 650ms);
+				}
+			}
+		}
+	}
+
+	.active &,
+	.complete & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+
+	&-title {
+		cursor: pointer;
+	}
+
+	&-newLabel {
+		overflow: hidden;
+		display: flex;
+		width: 0;
+		transition: width 1s $ease-in-out-quint 2.5s;
+		will-change: width;
+
+		.active & {
+			width: 40px;
+		}
+		.complete & {
+			width: 40px;
+		}
+	}
+	&-newLabelText {
+		background: $color-light-greenish-blue;
+		color: black;
+		font-size: 0.625rem;
+		padding: 1px 6px;
+		border-radius: 1px;
+	}
+
+	&-category {
+		color: $color-light-greenish-blue;
+	}
+
+	&-extract {
+		cursor: pointer;
+		display: inline-block !important;
+
+		&.v-enter-active, &.v-leave-active {
+			transition: transform 1s $ease-in-out-expo;
+			will-change: transform;
+			position: relative;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				display: block;
+				bottom: 0;
+				right: 0;
+				background: $color-charcoal;
+				z-index: 1;
+				width: 100%;
+				transform: scaleX(0);
+				transform-origin: right;
+				transition: transform 1s $ease-in-out-expo;
+			}
+		}
+
+		&.v-enter-active {
+			&, &:after{
+				transition-delay: .6s;
+			}
+		}
+
+		&.v-enter, &.v-leave-to {
+			&:after{
+				transform: scaleX(1);
+			}
+		}
+
+		&[style*="display"] {
+			opacity: 0;
+		}
+
+		&:hover {
+			color: $color-light-greenish-blue;
+		}
+	}
+
+	&-subhead {
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+	}
+
+
+	&-link {
+		color: $color-light-greenish-blue;
+		border: 1px solid $color-light-greenish-blue;
+		font-size: 0.75rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		padding: 12px 70px;
+		display: inline-block;
+		text-decoration: none;
+
+		&--desk {
+			@media (max-width: $screen-sm-down) {
+				display: none;
+			}
+		}
+
+		&--mobile {
+			@media (min-width: $screen-sm) {
+				display: none;
+			}
+		}
+
+		&:hover {
+			background: $color-light-greenish-blue;
+			color: $color-charcoal;
+		}
+
+		@media (max-width: $screen-xs) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&-details {
+		transform: translateY(-40px);
+
+		@media (min-width: $screen-sm) {
+			display: flex;
+		}
+
+		&.v-enter-active,
+		&.v-leave-active {
+			transition: max-height .9s $ease-in-out-quart, transform .9s $ease-in-out-quart, opacity .6s $ease-in-out-quart;
+			will-change: max-height, transform, opacity;
+			max-height: 220vh;
+			opacity: 1;
+			overflow: hidden;
+		}
+
+		&.v-enter-active {
+			transition-delay: .9s, .9s, .9s;
+		}
+
+		&.v-enter,
+		&.v-leave-to {
+			max-height: 0px;
+			opacity: 0;
+			transform: translateY(40px);
+		}
+
+	}
+
+	&-side {
+		max-width: 320px;
+		flex: 1;
+		margin-right: 7.3vw;
+
+		@media (max-width: $screen-lg) {
+			max-width: 280px
+		}
+		@media (max-width: $screen-sm) {
+			max-width: 240px;
+			margin-right: 6vw;
+		}
+		@media (max-width: $screen-sm-down) {
+			max-width: none;
+			margin-bottom: 1.875rem;
+		}
+	}
+
+	&-sideTitle {
+		color: white;
+		opacity: .3;
+		display: block;
+		text-transform: uppercase;
+	}
+
+	&-main {
+		flex: 1;
+	}
+
+}

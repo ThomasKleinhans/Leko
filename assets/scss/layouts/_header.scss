@@ -1,0 +1,120 @@
+.Header {
+	position: fixed;
+	z-index: 2;
+	padding: 40px;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	pointer-events: none;
+	transition: transform .6s $ease-out-quart;
+	transform: translateY(0);
+
+	.fp-viewing-Leko & {
+		transform: translateY(var(--covid-banner-height));
+	}
+
+	& > *{
+		pointer-events: all;
+	}
+
+	.Menu-icon, .Header-logo {
+		color: white;
+		transition: color .4s $ease-in-out-quint .4s;
+		will-change: color;
+		pointer-events: all;
+
+		.fp-viewing-Speed &,
+		.fp-viewing-Technology &,
+		.fp-viewing-Cost &,
+		.fp-viewing-About &,
+		.fp-viewing-Meet &,
+		.fp-viewing-Process &,
+		.fp-viewing-Footer &,
+		.fp-viewing-Careers-Footer & {
+			color: $color-charcoal;
+		}
+	}
+
+	@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+		padding: 40px 8.6vw;
+	}
+	@media (max-width: $screen-xs) {
+		padding: 30px 8.6vw;
+	}
+
+	&-title {
+		font-size: 0;
+	}
+
+}
+
+.MainLogo {
+	cursor: pointer;
+
+	&-inline {
+		overflow: hidden;
+		color: white;
+
+		body[class*=fp-viewing-] & {
+			transition: width .4s $ease-in-out-quint .2s;
+			will-change: width;
+			width: 0;
+		}
+
+		svg{
+			width: 77px;
+
+			@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+				width: 60px;
+			}
+			@media (max-width: $screen-xs) {
+				width: 50px;
+			}
+		}
+
+		.fp-viewing-Leko.i &,
+		.body-contact & {
+			width: 77px;
+			transition-delay: .2s;
+			transition-duration: .7s;
+
+			@media (min-width: $screen-md-up) and (max-width: $screen-lg) {
+				width: 60px;
+			}
+			@media (max-width: $screen-xs) {
+				width: 50px;
+			}
+		}
+	}
+
+	&-L {
+		position: absolute;
+		top: 35px;
+		opacity: 0;
+		transition: opacity .1s linear .5s;
+		will-change: opacity;
+		width: 22px;
+		height: 31px;
+
+		body:not([class]) &,
+		.fp-viewing-Leko & {
+			transition: none !important;
+			opacity: 0;
+		}
+
+		@media (min-width: $screen-xs-up) and (max-width: $screen-md) {
+			width: 19px;
+			height: 27px;
+		}
+		@media (max-width: $screen-xs) {
+			top: 25px;
+			width: 17px;
+			height: 24px;
+		}
+
+		body[class*=fp-viewing-]:not(.fp-viewing-Leko) & {
+			opacity: 1;
+		}
+
+	}
+}
