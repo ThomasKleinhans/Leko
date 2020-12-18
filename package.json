@@ -12,8 +12,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate && gulp copy",
-    "heroku-postbuild": "npm run build"
+    "generate": "nuxt generate && gulp copy"
   },
   "dependencies": {
     "body-scroll-lock": "^2.7.1",
