@@ -33,8 +33,8 @@
 </template>
 
 <script>
-	import { heroMixin } from '@/mixins/heroMixin.js'
-	import { modalMixin } from '@/mixins/modalMixin.js'
+	import { heroMixin } from '@/mixins/hero.js'
+	import { modalMixin } from '@/mixins/modal.js'
 
 	export default {
 

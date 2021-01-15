@@ -53,7 +53,7 @@
 	import Process from '@/components/careers/Process.vue'
 	import CovidBanner from '@/components/careers/CovidBanner.vue'
 
-	import { fullpageMixin } from '@/mixins/fullpageMixin.js'
+	import { fullpageMixin } from '@/mixins/fullpage.js'
 
 	import { mapState, mapGetters } from 'vuex'
 

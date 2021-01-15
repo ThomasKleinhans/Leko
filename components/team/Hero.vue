@@ -19,7 +19,7 @@
 </template>
 
 <script>
-	import { heroMixin } from '@/mixins/heroMixin.js'
+	import { heroMixin } from '@/mixins/hero.js'
 
 	export default {
 

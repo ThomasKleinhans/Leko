@@ -29,9 +29,7 @@
 export default {
 
 	mounted () {
-		setTimeout(() => {
-			this.$refs.wrapper.classList.add('active')
-		})
+		setTimeout( () => this.$refs.wrapper.classList.add('active') )
 	}
 
 }

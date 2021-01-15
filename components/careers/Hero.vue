@@ -25,7 +25,7 @@
 </template>
 
 <script>
-	import { heroMixin } from '@/mixins/heroMixin.js'
+	import { heroMixin } from '@/mixins/hero.js'
 	import { mapGetters } from 'vuex'
 
 	export default {

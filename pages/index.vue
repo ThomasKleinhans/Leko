@@ -66,7 +66,7 @@
 
 	import { mapState, mapGetters } from 'vuex'
 
-	import { fullpageMixin } from '@/mixins/fullpageMixin.js'
+	import { fullpageMixin } from '@/mixins/fullpage.js'
 
 	export default {
 
@@ -114,9 +114,7 @@
 			playVideos (destination) {
 				let videos = document.querySelector('.active').querySelectorAll('video')
 				if (videos.length && destination.anchor !== 'Safety') {
-					videos.forEach(video => {
-						video.play()
-					})
+					videos.forEach(video => video.play() )
 				}
 			},
 
@@ -140,5 +138,7 @@
 				this.leave.destination = destination.anchor
 			}
 		}
+
+
 	}
 </script>

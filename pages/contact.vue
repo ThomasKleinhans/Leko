@@ -26,15 +26,13 @@
 
 <script>
 	import Map from '@/components/contact/Map.vue'
+
 	export default {
 
 		components: { Map },
 
 		mounted () {
-			setTimeout(() => {
-				this.$refs.wrapper.classList.add('active')
-				fullpage_api.destroy('all')
-			})
+			setTimeout( () => this.$refs.wrapper.classList.add('active') )
 		}
 
 	}

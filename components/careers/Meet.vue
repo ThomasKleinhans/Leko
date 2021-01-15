@@ -62,7 +62,7 @@
 <script>
 
 	import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-	import { modalMixin } from '@/mixins/modalMixin.js'
+	import { modalMixin } from '@/mixins/modal.js'
 
 	export default {
 

@@ -35,7 +35,7 @@
 	import Employees from '@/components/team/Employees.vue'
 	import Hiring from '@/components/team/Hiring.vue'
 
-	import { fullpageMixin } from '@/mixins/fullpageMixin.js'
+	import { fullpageMixin } from '@/mixins/fullpage.js'
 
 	import { mapState, mapGetters } from 'vuex'
 

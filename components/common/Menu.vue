@@ -16,7 +16,7 @@
 				<span class="Menu-close Subhead" @click="toggleMenu">Close</span>
 
 				<nav>
-					<ul class="Menu-nav" @click="toggleMenu">
+					<ul class="Menu-nav">
 						<li><nuxt-link tag="a" :to="{ name: 'index' }" class="h2 Menu-link">Home</nuxt-link></li>
 						<li><nuxt-link tag="a" :to="{ name: 'team' }" class="h2 Menu-link">We are Leko</nuxt-link></li>
 						<li><nuxt-link tag="a" :to="{ name: 'careers' }" class="h2 Menu-link">Careers</nuxt-link></li>
@@ -41,9 +41,16 @@
 	import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 	export default {
+
 		data () {
 			return {
 				isMenuOpen: false
+			}
+		},
+
+		watch:{
+			$route (to, from){
+				this.isMenuOpen = false
 			}
 		},
 
