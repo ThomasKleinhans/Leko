@@ -6,26 +6,10 @@
 	display: none;
 }
 
-.u-hidden--lg {
-	@media (max-width: $screen-md) {
-		display: none;
-	}
-}
-
-.u-hidden--md {
-	@media (max-width: $screen-md) {
-		display: none;
-	}
-}
-
-.u-hidden--sm {
-	@media (max-width: $screen-sm) {
-		display: none;
-	}
-}
-
-.u-hidden--xs {
-	@media (max-width: $screen-xs) {
-		display: none;
+@each $size, $breakpoint in $screens {
+	@media #{$breakpoint} {
+		.u-hidden--#{$size} {
+			display: none;
+		}
 	}
 }

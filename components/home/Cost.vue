@@ -5,7 +5,7 @@
 		<div class="LayoutTwo-media LayoutTwo-size70">
 
 			<div class="LayoutTwo-mobileMask LayoutTwo-mobileMask--fromLeft u-mediaZoomAnimation LayoutTwo-mobileMask--full">
-				<video class="u-mediaFullscreen" playsinline muted loop :src="cost.video"></video>
+				<video class="u-mediaFullSize" playsinline muted loop :src="cost.video"></video>
 			</div>
 
 			<ul class="Stats Cost-stats" v-if="cost.stats">

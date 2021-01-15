@@ -3,7 +3,7 @@
 	<section class="About LayoutTwo-vertical">
 
 		<div class="About-image u-relative LayoutTwo-media LayoutTwo-size50 u-mediaZoomAnimation">
-			<img :src="aboutImage" class="u-mediaFullscreen">
+			<img :src="aboutImage" class="u-mediaFullSize">
 		</div>
 
 		<div class="About-text LayoutTwo-text LayoutTwo-size50">

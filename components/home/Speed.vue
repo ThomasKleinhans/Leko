@@ -16,7 +16,7 @@
 
 		<div class="LayoutTwo-media LayoutTwo-size70 u-relative Speed-video u-mediaZoomAnimation">
 			<div class="LayoutTwo-mobileMask LayoutTwo-mobileMask--fromLeft">
-				<img :src="speed.image" alt="Robot" class="u-mediaFullscreen">
+				<img :src="speed.image" alt="Robot" class="u-mediaFullSize">
 			</div>
 		</div>
 

@@ -18,23 +18,21 @@
 		}
 	}
 
-}
-
-.TechnologyTimer {
-
-	@media (min-width: $screen-lg-up) {
-		margin-bottom: 3.125rem;
-	}
-	@media (max-width: $screen-lg) {
-		margin-bottom: 1.875rem;
+	&-timer {
+		@media (min-width: $screen-lg-up) {
+			margin-bottom: 3.125rem;
+		}
+		@media (max-width: $screen-lg) {
+			margin-bottom: 1.875rem;
+		}
 	}
 
-	&-list {
+	&-timerList {
 		position: relative;
 		margin-bottom: 45px;
 	}
 
-	&-listItem {
+	&-timerListItem {
 		color: $color-pine-green;
 		height: 20px;
 		overflow: hidden;
@@ -66,11 +64,11 @@
 		}
 	}
 
-	&-lines {
+	&-timerLines {
 		display: flex;
 	}
 
-	&-linesItem {
+	&-timerLinesItem {
 		width: 90px;
 		height: 1px;
 		background-color: rgba(11, 40, 25, .2);
@@ -85,7 +83,6 @@
 			background-color: $color-pine-green;
 			will-change: width;
 		}
-
 
 		&.is-active {
 			&:before {
@@ -104,5 +101,4 @@
 			margin-left: 10px;
 		}
 	}
-
 }

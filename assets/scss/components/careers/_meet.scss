@@ -1,11 +1,20 @@
 .Meet {
 
-	&-profiles {
+	&-list {
 		position: relative;
+		display: grid;
 
+		@media (min-width: $screen-md-up) {
+			grid-auto-rows: 50%;
+		}
+		@media (max-width: $screen-md) {
+			grid-auto-rows: 40vw;
+		}
 		@media (min-width: $screen-xs-up) {
-			display: flex;
-			flex-wrap: wrap;
+			grid-template-columns: repeat(2, 50%);
+		}
+		@media (max-width: $screen-xs) {
+			grid-auto-rows: 70vw;
 		}
 
 		&.is-inactive {
@@ -13,63 +22,48 @@
 		}
 	}
 
-}
+	&-card {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
 
-.MeetProfile {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	position: relative;
-	cursor: pointer;
-	overflow: hidden;
+		.active & {
 
-	@media (min-width: $screen-md-up) {
-		height: 50%;
-	}
-	@media (max-width: $screen-md) {
-		height: 40vw;
-	}
-	@media (min-width: $screen-xs-up) {
-		width: 50%;
-	}
-	@media (max-width: $screen-xs) {
-		height: 70vw;
-	}
+			@for $t from 0 through 4 {
+				$t: $t + 1;
 
-	&-image {
-		@media (max-width: $screen-lg) {
-			position: absolute;
-		}
-	}
+				&:nth-child(#{$t}) {
 
-	.active & {
-
-		@for $t from 0 through 4 {
-			$t: $t + 1;
-
-			&:nth-child(#{$t}) {
-
-				.Meet-profile-wording {
-					> * {
-						@for $i from 0 through 2 {
-							&:nth-child(#{$i}){
-								@media (min-width: $screen-md-up) {
-									transition-delay: (($t * 150ms) + $i * 300ms + 600ms + 200ms);
-								}
-								@media (max-width: $screen-md) {
-									transition-delay: (($t * 150ms) + $i * 300ms + 200ms);
+					.Meet-cardWording {
+						> * {
+							@for $i from 0 through 2 {
+								&:nth-child(#{$i}){
+									@media (min-width: $screen-md-up) {
+										transition-delay: (($t * 150ms) + $i * 300ms + 600ms + 200ms);
+									}
+									@media (max-width: $screen-md) {
+										transition-delay: (($t * 150ms) + $i * 300ms + 200ms);
+									}
 								}
 							}
 						}
 					}
 				}
+
 			}
-
 		}
-
 	}
 
-	&-wording {
+	&-cardImage {
+		@media (max-width: $screen-lg) {
+			position: absolute;
+		}
+	}
+
+	&-cardWording {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -100,7 +94,7 @@
 		}
 	}
 
-	&-jobTitle {
+	&-cardJobTitle {
 		font-size: 1rem;
 		padding-bottom: 0.25rem;
 
@@ -109,7 +103,7 @@
 		}
 	}
 
-	&-quotation {
+	&-cardQuotation {
 		font-size: 0.75rem;
 
 		@media (max-width: $screen-lg) {
@@ -117,7 +111,7 @@
 		}
 	}
 
-	&-video {
+	&-cardVideo {
 		z-index: 0;
 		opacity: 0;
 		transition: opacity .4s ease;
@@ -127,4 +121,5 @@
 			opacity: 1;
 		}
 	}
+
 }

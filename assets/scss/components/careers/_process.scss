@@ -10,7 +10,6 @@
 		}
 	}
 
-
 	&-subhead {
 		font-weight: 800;
 
@@ -33,24 +32,24 @@
 	&-paragraph {
 		font-weight: 300;
 	}
-}
 
-.ProcessList {
-	display: flex;
-	justify-content: center;
-	padding: 7vh 1.3vw 0;
+	&-list {
+		display: flex;
+		justify-content: center;
+		padding: 7vh 1.3vw 0;
 
-	@media (max-width: $screen-xs) {
-		padding-left: 0;
-		padding-right: 0;
+		@media (max-width: $screen-xs) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		@media (max-width: $screen-md) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
-	@media (max-width: $screen-md) {
-		flex-direction: column;
-		align-items: center;
-	}
-
-	&-item {
+	&-listItem {
 		max-width: calc(220px + 2.6vw);
 		padding: 0 1.3vw;
 		flex: 1;
@@ -101,7 +100,7 @@
 		}
 	}
 
-	&-itemTitle {
+	&-listItemTitle {
 		@media (min-width: $screen-lg-up) {
 			font-size: 1.5rem;
 		}
@@ -116,7 +115,7 @@
 		}
 	}
 
-	&-itemParagraph {
+	&-listItemParagraph {
 		opacity: .6;
 
 		@media (max-width: $screen-md) {
@@ -127,3 +126,4 @@
 		}
 	}
 }
+

@@ -131,7 +131,7 @@
 		}
 
 		&:hover {
-			.Safety-replay-icon {
+			.Safety-replayIcon {
 				transform: rotate(-180deg);
 			}
 		}
@@ -151,16 +151,17 @@
 			opacity: 0;
 		}
 
-		&-icon {
-			margin-right: 8px;
-			transform: rotate(0deg);
-			transition: transform .6s $ease-in-out-quart;
-			transform-origin: 9px 7px;
-			will-change: transform;
+	}
 
-			@media (max-width: $screen-xs) {
-				transform: scale(.9);
-			}
+	&-replayIcon {
+		margin-right: 8px;
+		transform: rotate(0deg);
+		transition: transform .6s $ease-in-out-quart;
+		transform-origin: 9px 7px;
+		will-change: transform;
+
+		@media (max-width: $screen-xs) {
+			transform: scale(.9);
 		}
 	}
 
@@ -187,25 +188,26 @@
 			opacity: 1;
 		}
 
-		&-number {
-			display: inline-block;
-			text-align: right;
-			width: 70px;
+	}
 
-			@media (max-width: $screen-xs) {
-				font-size: 1.4375rem;
-				width: 36px;
-			}
+	&-pressureNumber {
+		display: inline-block;
+		text-align: right;
+		width: 70px;
 
+		@media (max-width: $screen-xs) {
+			font-size: 1.4375rem;
+			width: 36px;
 		}
 
-		&-unit {
-			font-size: 24px;
-			margin-left: 10px;
+	}
 
-			@media (max-width: $screen-xs) {
-				font-size: 0.8125rem;
-			}
+	&-pressureUnit {
+		font-size: 24px;
+		margin-left: 10px;
+
+		@media (max-width: $screen-xs) {
+			font-size: 0.8125rem;
 		}
 	}
 

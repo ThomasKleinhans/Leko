@@ -5,30 +5,30 @@
 		<div class="LayoutTwo-media LayoutTwo-size70 Safety-videos" :class="{'is-finished' : isPressAnimationDone}">
 
 			<div class="Safety-video">
-				<video class="u-mediaFullscreen" playsinline muted preload="auto">
+				<video class="u-mediaFullSize" playsinline muted preload="auto">
 					<source src="@/assets/videos/press-concrete.mp4" type="video/mp4" />
 				</video>
 				<div class="Safety-pressure">
-					<span class="Safety-pressure-number">{{ concreteNumber }}</span>
-					<span class="Safety-pressure-unit">tons</span>
+					<span class="Safety-pressureNumber">{{ concreteNumber }}</span>
+					<span class="Safety-pressureUnit">tons</span>
 				</div>
 				<div class="Safety-videoLabel">Concrete</div>
 			</div>
 			<transition>
 				<span class="Safety-replay" v-if="isPressAnimationDone" @click="pressIncrementation">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" class="Safety-replay-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" class="Safety-replayIcon">
 						<path fill="#0B2819" fill-rule="nonzero" d="M3.2 7h1.6l-2.4 3.889L0 7h1.6c0-3.866 3.224-7 7.2-7S16 3.134 16 7s-3.224 7-7.2 7v-1.556c3.093 0 5.6-2.437 5.6-5.444s-2.507-5.444-5.6-5.444C5.707 1.556 3.2 3.993 3.2 7z"/>
 					</svg>
 					Replay it
 				</span>
 			</transition>
 			<div class="Safety-video">
-				<video class="u-mediaFullscreen" playsinline muted preload="auto">
+				<video class="u-mediaFullSize" playsinline muted preload="auto">
 					<source src="@/assets/videos/press-wood.mp4" type="video/mp4" />
 				</video>
 				<div class="Safety-pressure">
-					<span class="Safety-pressure-number">{{ lekoNumber }}</span>
-					<span class="Safety-pressure-unit">tons</span>
+					<span class="Safety-pressureNumber">{{ lekoNumber }}</span>
+					<span class="Safety-pressureUnit">tons</span>
 				</div>
 				<div class="Safety-videoLabel Safety-videoLabel--important">Leko® Technology</div>
 			</div>

@@ -4,7 +4,7 @@
 
 		<div class="LayoutTwo-media LayoutTwo-size70 Sustainability-image u-mediaZoomAnimation">
 			<div class="LayoutTwo-mobileMask LayoutTwo-mobileMask--fromRight">
-				<img :src="sustainability.image" class="u-mediaFullscreen">
+				<img :src="sustainability.image" class="u-mediaFullSize">
 			</div>
 		</div>
 

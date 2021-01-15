@@ -16,10 +16,10 @@
 
 			</div>
 
-			<ul class="ProcessList">
-				<li class="ProcessList-item u-mb-30--lg" v-for="process in process.list">
-					<h3 class="ProcessList-itemTitle u-mb-20 u-mb-15--lg u-mb-30--md">{{ process.fields.title }}</h3>
-					<p class="Paragraph ProcessList-itemParagraph" v-html="$options.filters.nl2br(process.fields.paragraphs)"></p>
+			<ul class="Process-list">
+				<li class="Process-listItem u-mb-30--lg" v-for="process in process.list">
+					<h3 class="Process-listItemTitle u-mb-20 u-mb-15--lg u-mb-30--md">{{ process.fields.title }}</h3>
+					<p class="Paragraph Process-listItemParagraph" v-html="$options.filters.nl2br(process.fields.paragraphs)"></p>
 				</li>
 			</ul>
 

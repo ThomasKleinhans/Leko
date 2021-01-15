@@ -4,7 +4,7 @@
 		<div class="LayoutTwo-media LayoutTwo-size70 Comfort-video">
 
 			<div class="LayoutTwo-mobileMask Comfort-mobileMask">
-				<video class="u-mediaFullscreen" playsinline muted loop>
+				<video class="u-mediaFullSize" playsinline muted loop>
 					<source src="@/assets/videos/comfort.mp4" type="video/mp4" />
 				</video>
 			</div>

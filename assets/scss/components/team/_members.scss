@@ -1,4 +1,4 @@
-.Employees {
+.Members {
 	background: $color-charcoal;
 
 	.fp-tableCell {
@@ -32,7 +32,7 @@
 			font-size: 0;
 			opacity: 0;
 
-			.Employees.active & {
+			.Members.active & {
 				transition: opacity .3s linear;
 				will-change: opacity;
 
@@ -44,12 +44,12 @@
 				}
 			}
 
-			.Employees.active &,
-			.Employees.complete & {
+			.Members.active &,
+			.Members.complete & {
 				opacity: 1;
 			}
 
-			.Employees.complete & {
+			.Members.complete & {
 				transition-delay: 0s;
 			}
 
@@ -112,11 +112,11 @@
 		}
 	}
 
-	&-listName {
+	&-listItemName {
 		word-spacing: 30vw;
 	}
 
-	&-listImg {
+	&-listItemImg {
 		width: auto;
 		max-width: 100%;
 		margin-bottom: 30px;

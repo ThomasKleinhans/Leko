@@ -34,7 +34,7 @@
 
 			expandBanner() {
 				this.expanded = !this.expanded
-				this.expanded ? this.dom.body.classList.add('has-covidBanner-expanded') : this.dom.body.classList.remove('has-covidBanner-expanded');
+				this.expanded ? document.body.classList.add('has-covidBanner-expanded') : document.body.classList.remove('has-covidBanner-expanded');
 				setTimeout( () => this.updateHeaderPosition() )
 			},
 
@@ -49,11 +49,6 @@
 		},
 
 		computed: {
-			dom () {
-				return {
-					body: document.body
-				}
-			},
 			read () {
 				return this.expanded ? 'Read less' : 'Read more';
 			},

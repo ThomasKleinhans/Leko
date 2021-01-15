@@ -4,7 +4,6 @@
 		<div class="Hero-inner" :class="{'video-loaded': isFirstVideoLoaded}">
 
 			<span class="Hero-label">{{ intro.subhead }}</span>
-
 			<h2 class="Hero-title" v-html="$options.filters.nl2br(intro.title)"></h2>
 
 			<div class="JobCTA-wrapper">
@@ -17,7 +16,7 @@
 		</div>
 
 		<transition>
-			<video class="Hero-video u-mediaFullscreen u-mediaFullscreen--absolute" :src="intro.video" ref="HeroVideo" playsinline muted autoplay loop v-show="isFirstVideoLoaded" />
+			<video class="Hero-video u-mediaFullSize u-mediaFullSize--absolute" :src="intro.video" ref="HeroVideo" playsinline muted autoplay loop v-show="isFirstVideoLoaded" />
 		</transition>
 
 	</section>

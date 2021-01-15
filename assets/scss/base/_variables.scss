@@ -10,7 +10,6 @@ $color-light-greenish-blue: 	#1EFD8D;
 $color-red-orange:					 	#FF3030;
 
 
-
 // VARIABLES
 $desktop-delay:								450ms;
 
@@ -33,6 +32,17 @@ $screen-md-down:							$screen-md - 1;
 
 $screen-lg-up:								$screen-lg + 1;
 $screen-lg-down:							$screen-lg - 1;
+
+$screens: (
+	'lg-up' : '(min-width: #{$screen-lg-up})',
+	'lg' 		: '(max-width: #{$screen-lg})',
+	'md-up' : '(min-width: #{$screen-md-up})',
+	'md' 		: '(max-width: #{$screen-md})',
+	'sm-up' : '(min-width: #{$screen-sm-up})',
+	'sm' 		: '(max-width: #{$screen-sm})',
+	'xs-up' : '(min-width: #{$screen-xs-up})',
+	'xs' 		: '(max-width: #{$screen-xs})',
+);
 
 
 // EASINGS

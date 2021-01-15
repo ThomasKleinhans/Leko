@@ -20,7 +20,7 @@
 
 			<ul class="Jobs-list" :style="{ '--JobsLength' : detailsDisplay.length}">
 
-				<li v-for="(job, key) in jobsList(category)" class="Job u-mb-30">
+				<li v-for="(job, key) in jobsList(category)" class="Jobs-listItem Job u-mb-30">
 
 					<transition>
 						<div class="Job-extract" @click="toggleDetails(key)" v-show="!detailsDisplay[key]">

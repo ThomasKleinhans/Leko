@@ -5,15 +5,13 @@
 		<div class="Hero-inner" :class="{'video-loaded': isFirstVideoLoaded}">
 
 			<span class="Hero-label">{{ intro.subhead }}</span>
-
 			<h1 class="Hero-title" v-html="$options.filters.nl2br(intro.title)"></h1>
-
 			<a href="#" class="Hero-cta" @click.prevent="toggleModal" v-if="intro.youtubeVideo">Watch the video</a>
 
 		</div>
 
 		<transition>
-			<video class="Hero-video u-mediaFullscreen u-mediaFullscreen--absolute" :src="intro.video" ref="HeroVideo" playsinline muted autoplay loop v-show="isFirstVideoLoaded" />
+			<video class="Hero-video u-mediaFullSize u-mediaFullSize--absolute" :src="intro.video" ref="HeroVideo" playsinline muted autoplay loop v-show="isFirstVideoLoaded" />
 		</transition>
 
 		<template v-if="intro.youtubeVideo">

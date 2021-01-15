@@ -13,7 +13,6 @@ $margins: 0 5 10 15 20 30 50;
 	margin-left: auto;
 }
 
-
 @each $margin in $margins {
 	.u-mb-#{$margin}{
 		$remSize: $margin / 16;
@@ -21,39 +20,13 @@ $margins: 0 5 10 15 20 30 50;
 	}
 }
 
-
-@media (max-width: $screen-lg) {
-	@each $margin in $margins {
-		.u-mb-#{$margin}--lg {
-			$remSize: $margin / 16;
-			margin-bottom: #{$remSize}rem !important;
-		}
-	}
-}
-
-@media (max-width: $screen-md) {
-	@each $margin in $margins {
-		.u-mb-#{$margin}--md {
-			$remSize: $margin / 16;
-			margin-bottom: #{$remSize}rem !important;
-		}
-	}
-}
-
-@media (max-width: $screen-sm) {
-	@each $margin in $margins {
-		.u-mb-#{$margin}--sm {
-			$remSize: $margin / 16;
-			margin-bottom: #{$remSize}rem !important;
-		}
-	}
-}
-
-@media (max-width: $screen-xs) {
-	@each $margin in $margins {
-		.u-mb-#{$margin}--xs {
-			$remSize: $margin / 16;
-			margin-bottom: #{$remSize}rem !important;
+@each $size, $breakpoint in $screens {
+	@media #{$breakpoint} {
+		@each $margin in $margins {
+			.u-mb-#{$margin}--#{$size}{
+				$remSize: $margin / 16;
+				margin-bottom: #{$remSize}rem !important;
+			}
 		}
 	}
 }

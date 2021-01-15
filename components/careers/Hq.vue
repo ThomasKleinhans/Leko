@@ -4,7 +4,7 @@
 
 		<div class="LayoutTwo-media LayoutTwo-size70 u-mediaZoomAnimation">
 			<div class="LayoutTwo-mobileMask LayoutTwo-mobileMask--fromLeft LayoutTwo-mobileMask--full">
-				<img :src="hq.randomImage" class="u-mediaFullscreen HQ-image">
+				<img :src="hq.randomImage" class="u-mediaFullSize HQ-image">
 			</div>
 		</div>
 

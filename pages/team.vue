@@ -13,7 +13,7 @@
 				data-anchor="About"
 				:aboutImage="aboutImage" />
 
-			<employees
+			<members
 				class="section fp-noscroll fp-auto-height-responsive"
 				data-anchor="People"
 				:people="people" />
@@ -32,7 +32,7 @@
 <script>
 	import Hero from '@/components/team/Hero.vue'
 	import About from '@/components/team/About.vue'
-	import Employees from '@/components/team/Employees.vue'
+	import Members from '@/components/team/Members.vue'
 	import Hiring from '@/components/team/Hiring.vue'
 
 	import { fullpageMixin } from '@/mixins/fullpage.js'
@@ -43,7 +43,7 @@
 		components: {
 			Hero,
 			About,
-			Employees,
+			Members,
 			Hiring
 		},
 

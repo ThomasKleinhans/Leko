@@ -14,28 +14,28 @@
 
 		</div>
 
-		<ul class="LayoutTwo-media LayoutTwo-size70 LayoutTwo-mobileMask LayoutTwo-mobileMask--fromRight LayoutTwo-mobileMask--full Meet-profiles" :class="{'is-inactive': !isFpResponsive }">
+		<ul class="LayoutTwo-media LayoutTwo-size70 LayoutTwo-mobileMask LayoutTwo-mobileMask--fromRight LayoutTwo-mobileMask--full Meet-list" :class="{'is-inactive': !isFpResponsive }">
 
 			<li
-				class="MeetProfile"
+				class="Meet-card"
 				v-for="(profile, key) in meet.profiles"
 				@mouseover="playShortVideo(key)"
 				@mouseout="stopShortVideo(key)"
 				@click="toggleModal(key); playFullVideo(key)">
 
 				<div class="u-mediaZoomAnimation">
-					<img class="u-mediaFullscreen u-mediaFullscreen--absolute MeetProfile-image" :src="profile.fields.thumbnail.fields.file.url" />
+					<img class="u-mediaFullSize u-mediaFullSize--absolute Meet-cardImage" :src="profile.fields.thumbnail.fields.file.url" />
 				</div>
 
-				<video class="u-mediaFullscreen MeetProfile-video" :src="profile.fields.shortVideo.fields.file.url" playsinline muted loop />
+				<video class="u-mediaFullSize Meet-cardVideo" :src="profile.fields.shortVideo.fields.file.url" playsinline muted loop />
 
-				<div class="MeetProfile-wording">
+				<div class="Meet-cardWording">
 
-					<strong class="MeetProfile-jobTitle">
+					<strong class="Meet-cardJobTitle">
 						{{ profile.fields.jobTitle }}
 					</strong>
 
-					<span class="MeetProfile-quotation">
+					<span class="Meet-cardQuotation">
 						{{ profile.fields.quotation }}
 					</span>
 
@@ -81,9 +81,10 @@
 		},
 
 		computed: {
-			elements () {
+			dom () {
 				return {
-					meetProfile: document.querySelectorAll('.MeetProfile'),
+					meetList: document.querySelector('.Meet-list'),
+					meetCard: document.querySelectorAll('.Meet-card'),
 					fullpage: document.querySelector('.fullpage-wrapper')
 				}
 			}
@@ -97,7 +98,7 @@
 
 			playShortVideo (key) {
 				if( !this.isFpResponsive ) {
-					let video = this.elements.meetProfile[key].querySelector('video')
+					let video = this.dom.meetCard[key].querySelector('video')
 					video.currentTime = 0
 					video.play()
 					video.classList.add('is-visible')
@@ -106,7 +107,7 @@
 
 			stopShortVideo (key) {
 				if( !this.isFpResponsive ) {
-					let video = this.elements.meetProfile[key].querySelector('video')
+					let video = this.dom.meetCard[key].querySelector('video')
 					this.resetShortVideo(video)
 					video.pause()
 					clearTimeout(this.resetShortVideoTimeout)
@@ -122,9 +123,7 @@
 		watch: {
 			'load.destination': function (newVal, oldVal) {
 				if (newVal === 'Meet') {
-					setTimeout(_ => {
-						document.querySelector('.Meet-profiles').classList.remove('is-inactive')
-					}, 1000)
+					setTimeout(_ => this.dom.meetList.classList.remove('is-inactive'), 1000)
 				}
 			}
 		}
