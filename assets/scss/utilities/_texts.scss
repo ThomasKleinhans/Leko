@@ -9,3 +9,15 @@
 .u-textCapitalize:first-letter {
 	text-transform: uppercase;
 }
+
+.u-textItalic {
+	font-style: italic;
+}
+
+.u-textCurrentColor {
+	color: currentColor !important;
+}
+
+.u-textUnderlined {
+	text-decoration: underline;
+}
