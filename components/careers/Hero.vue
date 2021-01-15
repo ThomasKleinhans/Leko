@@ -6,8 +6,8 @@
 			<span class="Hero-label">{{ intro.subhead }}</span>
 			<h2 class="Hero-title" v-html="$options.filters.nl2br(intro.title)"></h2>
 
-			<div class="JobCTA-wrapper">
-				<div class="JobCTA" @click="goToJobSection()">
+			<div class="JobCTA">
+				<div class="JobCTA-btn" @click="goToJobSection()">
 					<span class="JobCTA-number">{{ jobsNumber }}</span>
 					<span>jobs Current openings</span>
 					<icon width="10" height="11" name="arrow" class="JobCTA-icon" />

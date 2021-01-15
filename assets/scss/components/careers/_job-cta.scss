@@ -1,56 +1,56 @@
 .JobCTA {
-	padding: 21px 35px 21px 24px;
-	border-radius: 3px;
-	background-color: #F4F4F4;
-	font-size: 10px;
-	color: black;
-	font-weight: 700;
-	text-transform: uppercase;
-	display: grid;
-	grid-auto-flow: column;
-	align-items: center;
-	cursor: pointer;
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	transition: color .1s linear;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
 
-	@media (max-width: $screen-md) {
-		display: none;
-	}
+	&-btn {
+		padding: 21px 35px 21px 24px;
+		border-radius: 3px;
+		background-color: #F4F4F4;
+		font-size: 10px;
+		color: black;
+		font-weight: 700;
+		text-transform: uppercase;
+		display: grid;
+		grid-auto-flow: column;
+		align-items: center;
+		cursor: pointer;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		transition: color .1s linear;
 
-	&:before {
-		content: "";
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		background-color: $color-charcoal;
-		display: block;
-		position: absolute;
-		transform: scaleX(0);
-		transform-origin: right;
-		transition: transform .5s $ease-in-out-quart;
-		will-change: transform;
-	}
-
-	&:hover {
-		color: white;
+		@media (max-width: $screen-md) {
+			display: none;
+		}
 
 		&:before {
-			transform: scaleX(1);
-			transform-origin: left;
+			content: "";
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: $color-charcoal;
+			display: block;
+			position: absolute;
+			transform: scaleX(0);
+			transform-origin: right;
+			transition: transform .5s $ease-in-out-quart;
+			will-change: transform;
 		}
-	}
 
-	> * {
-		position: relative;
-	}
+		&:hover {
+			color: white;
 
-	&-wrapper {
-		position: absolute;
-		bottom: 30px;
-		right: 30px;
+			&:before {
+				transform: scaleX(1);
+				transform-origin: left;
+			}
+		}
+
+		> * {
+			position: relative;
+		}
 	}
 
 	&-number {
