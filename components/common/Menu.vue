@@ -20,6 +20,7 @@
 						<li><nuxt-link tag="a" :to="{ name: 'index' }" class="h2 Menu-link">Home</nuxt-link></li>
 						<li><nuxt-link tag="a" :to="{ name: 'team' }" class="h2 Menu-link">We are Leko</nuxt-link></li>
 						<li><nuxt-link tag="a" :to="{ name: 'careers' }" class="h2 Menu-link">Careers</nuxt-link></li>
+						<li><nuxt-link tag="a" :to="{ name: 'projects' }" class="h2 Menu-link">Projects</nuxt-link></li>
 						<li><nuxt-link tag="a" :to="{ name: 'contact' }" class="h2 Menu-link">Contact us</nuxt-link></li>
 					</ul>
 				</nav>
