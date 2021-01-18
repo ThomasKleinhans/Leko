@@ -10,8 +10,25 @@
 		height: 85vh;
 
 		font-family: 'Riposte';
-		font-size: 6.25rem;
+		font-size: 100px;
 		font-weight: 200;
+
+		.type{
+			font-size: 12px;
+			text-transform: capitalize;
+			font-weight: 200;
+			letter-spacing: 0px;
+		}
+
+		.link{
+			letter-spacing: -3px;
+			color: white;
+
+		}
+		
+		.locked{
+			opacity: 0.2;
+		}
 	}
 
 }

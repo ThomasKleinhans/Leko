@@ -2,9 +2,10 @@
 	<div class="Projects" ref="wrapper">
 		<main role="main">
             <div>
-				<div class="project" v-for="(project) in projects" :key="project">
-					<nuxt-link tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</nuxt-link>
-					<span></span>
+				<div class="project"  v-for="(project) in projects" :key="project">
+					<p :class="{'type':true, 'locked': !project.fields.isActive}">CATEGORIE</p>
+					<nuxt-link class="link" v-if='project.fields.isActive' tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</nuxt-link>
+					<span class="link locked" v-else>{{project.fields.title}}</span>
 			    </div>
             </div>
 		</main>
@@ -22,17 +23,8 @@ export default {
 	computed: {
 		...mapGetters('projects', {
 			title: 'getTitle',
-			projectsDetails: 'getProjectsDetails'
-		}),
-		projects () {
-			let res = []
-			for(let i = 0; i < this.projectsDetails.length; i++){
-				if(this.projectsDetails[i].fields.isActive){
-					res.push(this.projectsDetails[i])
-				}
-			}
-			return res
-		}
+			projects: 'getProjectsDetails'
+		})
 
 	}
 
