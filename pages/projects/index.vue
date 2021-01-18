@@ -2,8 +2,10 @@
 	<div class="Projects" ref="wrapper">
 		<main role="main">
             <div>
-                {{title}}
-				<div v-for="(project) in projectsDetails" :key="project">{{project.fields.title}}</div>
+				<div class="project" v-for="(project) in projectsDetails" :key="project">
+					<nuxt-link tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</nuxt-link>
+					<span></span>
+			    </div>
             </div>
 		</main>
 	</div>
@@ -13,13 +15,6 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-
-	mounted () {
-		setTimeout(() => {
-			this.$refs.wrapper.classList.add('active')
-		})
-	},
-
 	mounted () {
 		this.$store.dispatch('projects/fetchProjectsInfos')
 	},

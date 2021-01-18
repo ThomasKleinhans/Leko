@@ -3,12 +3,14 @@ import contentful from '~/plugins/contentful.js'
 export const state = () => ({
     datas: {},
     projectsDetails: {},
-	isLoaded: false
+	isLoaded: true,
+	currentProject : {}
 })
 
 export const getters = {
     getTitle: state => state.datas.title,
-    getProjectsDetails: state => state.projectsDetails
+    getProjectsDetails: state => state.projectsDetails,
+	getCurrentProject: state => state.currentProject
 }
 
 export const mutations = {
@@ -19,6 +21,9 @@ export const mutations = {
 	FETCH_PROJECTS_DETAILS (state, datas) {
 		state.projectsDetails = datas
 	},
+	FETCH_CURRENT_PROJECT (state, datas) {
+		state.currentProject = datas
+	}
 }
 
 
