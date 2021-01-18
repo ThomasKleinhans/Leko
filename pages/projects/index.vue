@@ -2,7 +2,7 @@
 	<div class="Projects" ref="wrapper">
 		<main role="main">
             <div>
-				<div class="project" v-for="(project) in projectsDetails" :key="project">
+				<div class="project" v-for="(project) in projects" :key="project">
 					<nuxt-link tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</nuxt-link>
 					<span></span>
 			    </div>
@@ -23,7 +23,17 @@ export default {
 		...mapGetters('projects', {
 			title: 'getTitle',
 			projectsDetails: 'getProjectsDetails'
-		})
+		}),
+		projects () {
+			let res = []
+			for(let i = 0; i < this.projectsDetails.length; i++){
+				if(this.projectsDetails[i].fields.isActive){
+					res.push(this.projectsDetails[i])
+				}
+			}
+			return res
+		}
+
 	}
 
 }
