@@ -1,15 +1,33 @@
 <template>
-	<div class="Projects" ref="wrapper">
-		<main role="main">
-			{{currentProject.fields.title}}
-		</main>
-	</div>
+	<client-only v-if="$store.state.projects.isLoaded">
+		<full-page ref="fullpage" :options="{}">
+
+			<hero
+				class="section fp-noscroll fp-auto-height-responsive is-light"
+				data-anchor="HQ"
+				:image="currentProject.fields.heroImage.fields.file.url"
+				:name="currentProject.fields.title" />
+
+			<hero
+				class="section fp-noscroll fp-auto-height-responsive is-light"
+				data-anchor="HQ"
+				:image="currentProject.fields.heroImage.fields.file.url"
+				:name="currentProject.fields.title" />
+
+		</full-page>
+	</client-only>
 </template>
 
 <script>	
 import { mapState, mapGetters, mapActions } from 'vuex'
+import Hero from '@/components/projects/Hero.vue'
 
-export default {
+export default {	
+	layout : 'project-layout',
+	components: {
+		Hero,
+	},
+
 	data () {
 		return{
 			id: this.$route.params.id

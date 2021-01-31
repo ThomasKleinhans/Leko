@@ -11,16 +11,16 @@
 					<transition 
 						name="slide-fade" 
 						tag="div" 
-						v-for="(item, index) in list" :key="item" 
+						v-for="(item, index) in filters.filters" :key="item.fields.id" 
 						appear
 					>
 						<div class="type-project" :style="'transition-delay:'+index*transitionDelay+'ms'">
-							<input type="checkbox" :id="'type'+index" :name="'type'+index">
-							<label :for="'type'+index">
+							<input v-model="filtersActives" type="checkbox" :checked="filtersActives.includes(item.fields.id)" :id="item.fields.id" name="category" :value="item.fields.id">
+							<label :for="item.fields.id">
 								<div class="type-icon">
-									<icon name="filter-type" width="35px" height="35px" />
+									<img :src="item.fields.icon.fields.file.url" alt="">
 								</div>
-								<div class="type-name">SINGLE-FAMILY HOME + {{item}}</div>
+								<div class="type-name">{{item.fields.name}}</div>
 							</label>
 						</div>
 					</transition>
@@ -30,7 +30,7 @@
 						tag="div"
 						appear
 					>
-					<div class="settings-icon check">
+					<div v-show="false" :class="{'settings-icon check' :true, 'active': filtersActives.length > 0}">
 						<svg width="25px" height="25px" viewBox="0 0 17 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<title>Check</title>
 							<g id="Recherche" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -48,25 +48,93 @@
 				
 			</div>
             <div>
-				<div class="project"  v-for="(project) in projects" :key="project" v-on:mouseleave="mouseleave">
-					<p :class="{'type':true, 'locked': !project.fields.isActive}">CATEGORIE</p>
-					<nuxt-link class="link" v-if='project.fields.isActive' tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</nuxt-link>
+				<div v-show="filtersActives.includes(project.fields.category.fields.id) ||filtersActives.length === 0" class="project"  v-for="(project, index) in projects" :key="project.fields.title" v-on:mouseleave="mouseleave">
+					<p :class="{'type':true, 'locked': !project.fields.isActive}">{{project.fields.category.fields.name}}</p>
+					<p @click="selectProject(index)" class="link" v-if='project.fields.isActive' tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</p>
 					<span class="link locked" v-else>{{project.fields.title}}</span>
 			    </div>
             </div>
 		</main>
+		<transition name="fade" appear>
+			<full-page ref="fullpage" v-if="isProjectSelected" :options="{}">
+
+				<hero
+					class="section fp-noscroll fp-auto-height-responsive is-light"
+					data-anchor="Hero"
+					:image="projects[projectSelected].fields.heroImage.fields.file.url"
+					:name="projects[projectSelected].fields.title" />
+
+				<category
+					class="section fp-noscroll fp-auto-height-responsive is-light"
+					data-anchor="Category"
+					:leftTitle="projects[projectSelected].fields.infoLeftTitle"
+					:leftImage="projects[projectSelected].fields.infoLeftContent.fields.file.url"
+					:rightContent="projects[projectSelected].fields.infoRightContent"
+					:rightTitle="projects[projectSelected].fields.infoRightTitle" 
+					:carousel="projects[projectSelected].fields.infoCarousel"/>
+
+				<statistics
+					class="section fp-noscroll fp-auto-height-responsive is-light"
+					data-anchor="Statistics"
+					:firstBarTitle="projects[projectSelected].fields.statisticsFirstGraphBarTitle"
+					:firstRightBarTitle="projects[projectSelected].fields.statisticsFirstGraphBarRightContent"
+					:firstLeftBarTitle="projects[projectSelected].fields.statisticsFirstGraphBarLeftContent"
+					:secondBarTitle="projects[projectSelected].fields.statisticsSecondGraphBarTitle"
+					:secondBarContent="projects[projectSelected].fields.statisticsSecondGraphBarContent"
+					:leftCircleContent="projects[projectSelected].fields.statisticsLeftCircleGraphContent"
+					:leftCircleTitle="projects[projectSelected].fields.statisticsLeftCircleGraphTitle"
+					:trapezoide="projects[projectSelected].fields.statisticsTrapezoideContent"
+					:rightCircleContent="projects[projectSelected].fields.statisticsRightCircleGraphContent"
+					:rightCircleTitle="projects[projectSelected].fields.statisticsRightCircleGraphTitle"/>
+
+				<plans v-for="(plan, index) in projects[projectSelected].fields.plans" :key="'plan' + index"
+					class="section fp-noscroll fp-auto-height-responsive is-light"
+					:data-anchor="'Plans'+index"
+					:plan="plan"/>
+
+				<infos
+					class="section fp-noscroll fp-auto-height-responsive is-light"
+					data-anchor="Details"
+					:infos="projects[projectSelected].fields.details.content"
+					:projectId="projects[projectSelected].sys.id"/>
+
+
+
+			</full-page>
+		</transition>
+		<transition name="fade" appear>
+			<div @mouseover="isCursorShown = true" @mousemove="updateCloseCursor" @mouseleave="isCursorShown = false" @click="closeProject()" class="background-fullpage" v-if="isProjectSelected"></div>
+		</transition>
+		<!--<div @mouseover="isCursorShown = true" @click="isProjectSelected = false; isCursorShown = false" class="close" id="close" v-show="isCursorShown">CLOSE</div>-->
 	</div>
 </template>
 
 <script>	
 import { mapState, mapGetters } from 'vuex'
+import Hero from '@/components/projects/Hero.vue'
+import Category from '@/components/projects/Category.vue'
+import Statistics from '@/components/projects/Statistics.vue'
+import Plans from '@/components/projects/Plans.vue'
+import Infos from '@/components/projects/Infos.vue'
 
 export default {
+	components: {
+		Hero,
+		Category,
+		Statistics,
+		Plans,
+		Infos
+	},
 	data (){
+	
 		return{
 			isFiltersOpened: false,
 			transitionDelay: 100,
-			list: [0,1,2,3,4,5]
+			list: [0,1,2,3,4,5],
+			isProjectSelected: false,
+			projectSelected: 0,
+			filtersActives: [],
+			isCursorShown: false
 		}
 	},
 	mounted () {
@@ -76,12 +144,21 @@ export default {
 
 	updated (){
 		const firstProject = document.querySelector(".project:first-child")
-		firstProject.classList.add('active')
+		if(firstProject){
+			firstProject.classList.add('active')
+		}
+
+		const urlParams = new URLSearchParams(window.location.search);
+		if(urlParams.get('id')){
+			if(this.projects){
+				this.openProject(urlParams.get('id'))
+			}
+		}
 	},
 
 	computed: {
 		...mapGetters('projects', {
-			title: 'getTitle',
+			filters: 'getFilters',
 			projects: 'getProjectsDetails'
 		})
 
@@ -93,7 +170,26 @@ export default {
 			if(firstProject){
 				firstProject.classList.remove('active')
 			}
+		},
+		selectProject(index) {
+			this.isProjectSelected = true
+			this.projectSelected = index
+		},
+		closeProject(){
+			history.replaceState({}, document.title, window.location.href.split('#')[0]);
+			this.isProjectSelected = false
+		},
+		openProject(id){
+			let project = this.projects.filter(s => s.sys.id == id)
+			this.projectSelected = this.projects.indexOf(project[0])
+			this.isProjectSelected = true
 		}
+		// updateCloseCursor(e){
+		// 	e.stopPropagation()
+		// 	let cursor = document.getElementById('close')
+		// 	cursor.style.top = e.clientY+'px'
+		// 	cursor.style.left = e.clientX+'px'
+		// }
 	}
 
 }
@@ -106,12 +202,58 @@ export default {
   transition: all .3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .8s;
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+
+.slide-fade-leave-to{
+  transition: all .8s ;
+	opacity: 0;
+}
+.slide-fade-leave{
+  transition: all .8s ;
+  opacity: 0;
+}
+.slide-fade-enter, .slide-fade-leave-active {
   transform: translateX(10px);
   opacity: 0;
 }
+.fade-enter-active {
+  transition: all .3s;
+}
+.fade-leave-active {
+  transition: all .2s;
+}
+.fade-enter, .slide-fade-leave{
+  opacity: 0;
+}
 
+.background-fullpage{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer; 
+}
+.fullpage-wrapper{
+    position: absolute !important;
+    top: 0;
+    left: 30%;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+}
+
+.close{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 200;
+	cursor: none; 
+	transition: 0.2s cubic-bezier(.49,.93,.77,1.04);
+}
 </style>
