@@ -18,7 +18,7 @@
 
 		<div class="LayoutTwo-media LayoutTwo-size70 u-mediaZoomAnimation">
 			<div class="LayoutTwo-mobileMask LayoutTwo-mobileMask--fromLeft LayoutTwo-mobileMask--full">
-				<img :src="carousel[0].fields.file.url" class="u-mediaFullscreen HQ-image">
+				<carousel :images="carousel"/>
 			</div>
 		</div>
 
@@ -28,7 +28,12 @@
 </template>
 
 <script>
+	import Carousel from './Carousel.vue'
+
 	export default {
+		components:{
+			Carousel
+		},
 
 		props: {
 			leftTitle: String,
