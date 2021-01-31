@@ -177,6 +177,7 @@ export default {
 		},
 		closeProject(){
 			history.replaceState({}, document.title, window.location.href.split('#')[0]);
+			history.replaceState({}, document.title, window.location.href.split('?')[0]);
 			this.isProjectSelected = false
 		},
 		openProject(id){

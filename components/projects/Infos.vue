@@ -37,10 +37,16 @@
         },
         methods:{
             goUp(){
-
+			    history.replaceState({}, document.title, window.location.href.split('#')[0]);
+			    history.replaceState({}, document.title, window.location.href = window.location.href + '#Hero');
             },
             copyPage(){
-
+                const el = document.createElement('textarea');
+                el.value = window.location.hostname+"/projects?id="+this.projectId;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
             }
         }
 
