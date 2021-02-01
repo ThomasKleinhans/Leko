@@ -4,7 +4,7 @@
             <img class="img" v-show='imgShown == index' :id="'image'+index" v-for="(image, index) in images" :key="'image'+index" :src="image.fields.file.url" alt="">
         </div>
         <div class="thumbnails">
-            <img @click="imgShown = index" v-for="(image, index) in images" :key="'thumbnail'+index" :src="image.fields.file.url" alt="">
+            <img @click="imgShown = index" v-show="imgShown != index" v-for="(image, index) in images" :key="'thumbnail'+index" :src="image.fields.file.url" alt="">
         </div>
     </div>
 </template>

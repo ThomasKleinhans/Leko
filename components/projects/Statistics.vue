@@ -3,14 +3,14 @@
 	<section class="project-statistics LayoutTwo-horizontal LayoutTwo-dark">
 
 		<div class="LayoutTwo-text LayoutTwo-size30">
-			<header>
+			<header class="bars">
 				<div class="bar duo">
 					<p class="left barStat">{{firstLeftBarTitle}}</p>
 					<p class="right barStat">{{firstRightBarTitle}}</p>
 				</div>
 				<h2 class="title">{{firstBarTitle}}</h2>
 			</header>
-			<header>
+			<header class="bars">
 				<div class="bar solo">
 					<p class="barStat">{{secondBarContent}}</p>
 				</div>
@@ -85,10 +85,13 @@
 			width: 100%;
 			max-width: none;
 			margin-bottom: 20px;
+
+
 			.bar{
 				display: flex;
 				width: 600px;
 				margin-right: 20px;
+				
 
 				.barStat{
 					display: flex;
@@ -121,6 +124,7 @@
 					}
 				}
 			}
+			
 
 			.title{
 				margin-left: 20px;
@@ -196,6 +200,44 @@
 						background: #111111;
 						height: 192px;
 						width: 192px;
+					}
+				}
+
+				@media screen and (max-width: 640px) {
+					.trapeze{
+						height: 120px;
+						width: 90%;
+						&::after{
+							transform: rotate(-5deg);
+						}
+					}
+					.firstCircle{
+						.circle{
+							height: 80px;
+							width: 80px;
+						}
+					}
+					.secondCircle{
+						.circle{
+							height: 120px;
+							width: 120px;
+						}
+					}
+				}
+			}
+
+			
+			&.bars{
+				@media screen and (max-width: 640px) {
+					flex-direction: column;
+					align-items: flex-start;
+
+					.bar{
+						width: 100%;
+					}
+
+					.title{
+						margin: 0px;
 					}
 				}
 			}

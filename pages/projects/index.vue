@@ -247,6 +247,13 @@ export default {
 	right: 0;
 	bottom: 0;
 	z-index: 100;
+	
+}
+@media screen and (max-width: 640px) {
+	.fullpage-wrapper{
+
+		left: 0;
+	}
 }
 
 .close{

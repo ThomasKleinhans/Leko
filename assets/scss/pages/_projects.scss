@@ -6,6 +6,16 @@
 	display: flex;
 	flex-direction: column;
 
+	@media screen and (max-width: 640px) {
+		main{
+			.project{
+				.link{
+					font-size: 70px;
+				}
+			}
+		}
+	}
+
 	main{
 		.filters{
 			margin-bottom: 5%;

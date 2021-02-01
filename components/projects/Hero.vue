@@ -53,5 +53,36 @@
 			text-align: center;
 		}
 	}
+	@media screen and (max-width: 640px) {
+		.LayoutTwo-media{
+			height: calc( 100vh * 2/3) !important;
+			.LayoutTwo-mobileMask{
+				height: 100%;
+				&::before{
+					content: none;
+				}				
+
+				img{
+					object-fit: cover;
+					height: 100%;
+				}
+			}
+		}
+		.LayoutTwo-text{
+			
+			height: calc( 100vh *  1/3) !important;
+		}	
+		header{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			h1{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4rem;
+			}
+		}
+	}
 }
 </style>

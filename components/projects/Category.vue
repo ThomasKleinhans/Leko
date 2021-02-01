@@ -71,14 +71,29 @@
 	}
 	.LayoutTwo-media{
 		height: calc( 100vh * 1/2);
+		.LayoutTwo-mobileMask{
+			@media screen and (max-width: 640px) {
+				height: 100%;
+				
+				&::before{
+					content: none;
+				}		
+			}
+		}
 		.u-mediaFullscreen{
 			object-position: center bottom;
 		}
 	}
 	header{
 		display: flex;
-		align-items: center;justify-content: space-between;
+		align-items: center;
+		justify-content: space-between;
 		width: 100%;
+
+		@media screen and (max-width: 640px) {
+			flex-direction: column;	
+		}
+
 		.text{
 			display: flex;
 			align-items: center;
@@ -102,6 +117,9 @@
 				font-weight: 200;
 				text-transform: uppercase;
 			}
+
+					
+			
 		}
 
 	}

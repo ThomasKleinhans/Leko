@@ -55,6 +55,8 @@
 
 <style lang="scss" scoped>
 .project-details{
+
+    
     
     background: white;
     color: #111211;
@@ -79,6 +81,30 @@
         justify-content: center;
         font-size: 40px;
         cursor: pointer;
+    }
+    @media screen and (max-width: 990px) {
+        p{
+            color: #AAAAAA;
+            width: 100%;
+        }
+
+        .LayoutTwo-text{
+            height: calc(100vh * 1/2);
+        }
+        
+        .bottom-buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+            
+            .big-button{
+                height:180px;
+                width: 180px;
+                margin-bottom: 20px;
+            }
+        }
+
     }
 }
 </style>

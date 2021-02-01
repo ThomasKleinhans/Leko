@@ -24,7 +24,19 @@
 </script>
 
 <style lang="scss" scoped>
-.project-plans{
+.project-plans{ 
+
+    .LayoutTwo-media{
+		.LayoutTwo-mobileMask{
+			@media screen and (max-width: 640px) {
+				height: 100%;
+				
+				&::before{
+					content: none;
+				}		
+			}
+		}
+    }
     
     background: white;
     color: #111211;
