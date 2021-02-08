@@ -3,7 +3,7 @@
 		<main role="main">
 			<div class="filters">
 				<div :class="{'settings-icon':true, 'active':isFiltersOpened}" @click="isFiltersOpened = !isFiltersOpened">
-					<icon name="settings-icon" width="25px" height="25px" />
+					<icon name="settings-icon" width="20px" height="20px" />
 				</div>
 
 				<div class="settings" v-if="isFiltersOpened">
@@ -48,9 +48,12 @@
 				
 			</div>
             <div>
-				<div v-show="filtersActives.includes(project.fields.category.fields.id) ||filtersActives.length === 0" class="project"  v-for="(project, index) in projects" :key="project.fields.title" v-on:mouseleave="mouseleave">
-					<p :class="{'type':true, 'locked': !project.fields.isActive}">{{project.fields.category.fields.name}}</p>
-					<p @click="selectProject(index)" class="link" v-if='project.fields.isActive' tag="a" :to="'projects/'+project.sys.id">{{project.fields.title}}</p>
+				<div v-show="filtersActives.includes(project.fields.category.fields.id) || filtersActives.length === 0" v-for="(project, index) in projects" :key="project.fields.title" :class="{'project':true,'locked': !project.fields.isActive, 'active': index == 0}" @mouseout="mouseleave()" @mouseleave="showByIndex = null" @mouseenter="showByIndex = index">
+					<div class="tags">
+						<p class="soon" v-if="!project.fields.isActive" v-show="showByIndex == index">soon</p>
+						<p :class="{'type':true, 'locked': !project.fields.isActive}">{{project.fields.category.fields.name}}</p>
+					</div>
+					<p @click="selectProject(index)" class="link" v-if='project.fields.isActive'>{{project.fields.title}}</p>
 					<span class="link locked" v-else>{{project.fields.title}}</span>
 			    </div>
             </div>
@@ -103,8 +106,21 @@
 			</full-page>
 		</transition>
 		<transition name="fade" appear>
-			<div @mouseover="isCursorShown = true" @mousemove="updateCloseCursor" @mouseleave="isCursorShown = false" @click="closeProject()" class="background-fullpage" v-if="isProjectSelected"></div>
+			<div @click="closeProject()" class="background-fullpage" v-if="isProjectSelected"></div>
 		</transition>
+		<div @click="closeProject()" class="backButton">
+			<svg width="18px" height="30px" viewBox="0 0 18 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g id="Page-projet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g id="1440/1440_LEKO_PROJECT-05" transform="translate(-1201.000000, -3827.000000)" fill="#111111" fill-rule="nonzero">
+						<g id="Group" transform="translate(580.000000, 3372.000000)">
+							<g id="Group-10" transform="translate(490.000000, 330.000000)">
+								<polygon id="→" transform="translate(139.840000, 139.840000) rotate(-90.000000) translate(-139.840000, -139.840000) " points="146.8 148.68 154.68 139.84 146.8 131 145.32 132.4 151.16 138.72 125 138.8 125 141 151.16 140.92 145.32 147.28"></polygon>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</div>
 		<!--<div @mouseover="isCursorShown = true" @click="isProjectSelected = false; isCursorShown = false" class="close" id="close" v-show="isCursorShown">CLOSE</div>-->
 	</div>
 </template>
@@ -134,7 +150,8 @@ export default {
 			isProjectSelected: false,
 			projectSelected: 0,
 			filtersActives: [],
-			isCursorShown: false
+			isCursorShown: false,
+			showByIndex: 4
 		}
 	},
 	mounted () {
@@ -143,10 +160,6 @@ export default {
 	},
 
 	updated (){
-		const firstProject = document.querySelector(".project:first-child")
-		if(firstProject){
-			firstProject.classList.add('active')
-		}
 
 		const urlParams = new URLSearchParams(window.location.search);
 		if(urlParams.get('id')){
@@ -184,6 +197,9 @@ export default {
 			let project = this.projects.filter(s => s.sys.id == id)
 			this.projectSelected = this.projects.indexOf(project[0])
 			this.isProjectSelected = true
+		},
+		test(index){
+			console.log(index)
 		}
 		// updateCloseCursor(e){
 		// 	e.stopPropagation()
@@ -243,13 +259,13 @@ export default {
 .fullpage-wrapper{
     position: absolute !important;
     top: 0;
-    left: 30%;
+    left: 25%;
 	right: 0;
 	bottom: 0;
 	z-index: 100;
 	
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
 	.fullpage-wrapper{
 
 		left: 0;
@@ -263,5 +279,18 @@ export default {
 	z-index: 200;
 	cursor: none; 
 	transition: 0.2s cubic-bezier(.49,.93,.77,1.04);
+}
+
+.backButton{
+	display: none;
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	z-index: 99999;
+	transform: rotate(-90deg);
+	cursor: pointer;
+	@media screen and (max-width: 768px) {
+		display: inline;
+	}
 }
 </style>

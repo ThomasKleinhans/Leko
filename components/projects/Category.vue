@@ -49,7 +49,7 @@
 <style lang="scss" scoped>
 .project-hero{
     background: white;
-	color: #111211;
+	color: #111111;
 	img{
 		object-position: center center;
 	}
@@ -72,7 +72,7 @@
 	.LayoutTwo-media{
 		height: calc( 100vh * 1/2);
 		.LayoutTwo-mobileMask{
-			@media screen and (max-width: 640px) {
+			@media screen and (max-width: 993px) {
 				height: 100%;
 				
 				&::before{
@@ -90,7 +90,7 @@
 		justify-content: space-between;
 		width: 100%;
 
-		@media screen and (max-width: 640px) {
+		@media screen and (max-width: 768px) {
 			flex-direction: column;	
 		}
 
@@ -108,12 +108,13 @@
 				font-size: 40px;
 				letter-spacing: -2px;
 				img{
-					height: 40px;
+					height: 70px;
 				}
 			}
 			.title{
 				margin-top: 10px;
-				font-size: 14px;
+				text-align: center;
+				font-size: 12px;
 				font-weight: 200;
 				text-transform: uppercase;
 			}

@@ -34,7 +34,7 @@
 <style lang="scss" scoped>
 .project-hero{
     background: white;
-	color: #111211;
+	color: #111111;
 	img{
 		object-position: center center;
 	}
@@ -53,7 +53,7 @@
 			text-align: center;
 		}
 	}
-	@media screen and (max-width: 640px) {
+	@media screen and (max-width: 993px) {
 		.LayoutTwo-media{
 			height: calc( 100vh * 2/3) !important;
 			.LayoutTwo-mobileMask{

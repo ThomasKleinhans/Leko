@@ -28,7 +28,7 @@
 
     .LayoutTwo-media{
 		.LayoutTwo-mobileMask{
-			@media screen and (max-width: 640px) {
+			@media screen and (max-width: 993px) {
 				height: 100%;
 				
 				&::before{

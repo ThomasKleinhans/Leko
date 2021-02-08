@@ -67,7 +67,7 @@
 <style lang="scss" scoped>
 .project-statistics{
     background: white;
-	color: #111211;
+	color: #111111;
 	img{
 		object-position: center center;
 	}
@@ -77,6 +77,9 @@
 		flex-direction: column;
 		justify-content: center;
 		padding: 0 10vw;
+		@media screen and (max-width: 1400px) {
+			padding: 0 2vw;
+		}
 
 		header{
 			display: flex;
@@ -86,11 +89,31 @@
 			max-width: none;
 			margin-bottom: 20px;
 
+			&.bars{
+				font-size: 40px;
+			}
 
 			.bar{
 				display: flex;
-				width: 600px;
+				width: 550px;
 				margin-right: 20px;
+				
+				@media screen and (max-width: 1090px) {
+					width: 480px;
+				}
+
+				@media screen and (max-width: 990px) {
+					margin-right: 5px;
+					width: 400px;
+				}
+				@media screen and (max-width: 800px) {
+					margin-right: 5px;
+					width: 350px;
+				}
+				
+				@media screen and (max-width: 640px) {
+					width: 480px;
+				}
 				
 
 				.barStat{
@@ -100,7 +123,7 @@
 					height: 50px;
 					width: 100%;
 					text-transform: uppercase;
-					font-size: 14px;
+					font-size: 12px;
 
 					&.left{
 						background: #111111;
@@ -129,7 +152,10 @@
 			.title{
 				margin-left: 20px;
 				font-size: 40px;
-				letter-spacing: -2px;
+				letter-spacing: -2px;	
+				@media screen and (max-width: 990px) {
+					margin-left: 0px;
+				}
 			}
 
 			&.circles{
@@ -169,9 +195,9 @@
 					width: 100%;
 					height: 192px;
 					border-radius: 9999px;
-					background: linear-gradient(280deg, rgba(240,240,240,1) 0%, rgba(255,255,255,0) 70%);
+					background: transparent linear-gradient(90deg, #FFFFFF00 0%, #EDEDED 100%) 0% 0% no-repeat padding-box;
 					opacity: 0.6;
-					color: #CCCCCC;
+					color: #B8B8B8;
 					font-size: 12px;
 					&::after{
 						width: 80%;
@@ -228,7 +254,7 @@
 
 			
 			&.bars{
-				@media screen and (max-width: 640px) {
+				@media screen and (max-width: 670px) {
 					flex-direction: column;
 					align-items: flex-start;
 

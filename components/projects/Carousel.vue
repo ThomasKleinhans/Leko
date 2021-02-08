@@ -4,7 +4,7 @@
             <img class="img" v-show='imgShown == index' :id="'image'+index" v-for="(image, index) in images" :key="'image'+index" :src="image.fields.file.url" alt="">
         </div>
         <div class="thumbnails">
-            <img @click="imgShown = index" v-show="imgShown != index" v-for="(image, index) in images" :key="'thumbnail'+index" :src="image.fields.file.url" alt="">
+            <img @click="imgShown = index" :class="{'notActive': imgShown != index}" v-for="(image, index) in images" :key="'thumbnail'+index" :src="image.fields.file.url" alt="">
         </div>
     </div>
 </template>
@@ -40,19 +40,24 @@ export default {
     .thumbnails{
         position: absolute;
         width: 100%;
-        height: 75px;
+        height: 50px;
         display: flex;
         justify-content: flex-end;
-        bottom: 25px;
+        bottom: 50px;
+        right: 16px;
         cursor: pointer;
 
         img{
             object-fit: cover;
-            margin: 15px;
+            margin: 2.5px;
             height: 75px;
             transition: 0.4s;
+            opacity: 1;
+            &.notActive{
+                opacity: 0.6;
+            }
             &:hover{
-                opacity: 0.7;
+                opacity: 1;
             }
         }
     }
