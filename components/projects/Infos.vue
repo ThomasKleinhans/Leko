@@ -182,6 +182,11 @@
         .buttons{
             width: calc(50vw);
         }
+        
+        .big-button{
+            height: 250px;
+            width: 250px;
+        }
 
     }
 }
