@@ -170,6 +170,7 @@
 					justify-content: center;
 					align-items: center;
 					.circle{
+    					padding: 0 20px;
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -199,6 +200,7 @@
 					opacity: 0.6;
 					color: #B8B8B8;
 					font-size: 12px;
+					padding: 0 30%;
 					&::after{
 						width: 80%;
 						height: 60px;

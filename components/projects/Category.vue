@@ -60,6 +60,7 @@
 		&::after{
 			width: 100%;
 			height: 80px;
+			max-height: 10%;
 			content: "";
 			position: absolute;
 			top: 0;

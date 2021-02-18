@@ -189,5 +189,41 @@
         }
 
     }
+    @media screen and (max-width: 430px) {
+        
+        .fp-tableCell{
+            display: flex;
+            flex-direction: row;
+
+            .LayoutTwo-size50{
+                &.text-paraph{ 
+                    height: 70%;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding-top: 10px;
+                }
+                width: 100%;
+                height: 30%;
+                max-width: none;
+                display: flex;
+                margin: 0;
+                justify-content: center;
+                align-items: flex-end;
+                .bottom-buttons{
+                    margin: 0px;
+                    justify-content: space-between;
+                    width: 50%;
+                    align-items: center;
+                    flex-direction: row;
+                }
+                .big-button{
+                    width: 70px;
+                    height: 70px;
+                    font-size: 20px;
+                }
+            }
+        }
+
+    }
 }
 </style>

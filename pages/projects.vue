@@ -50,7 +50,6 @@
             <div>
 				<div v-show="filtersActives.includes(project.fields.category.fields.id) || filtersActives.length === 0" v-for="(project, index) in projects" :key="project.fields.title" :class="{'project':true,'locked': !project.fields.isActive, 'active': index == 0}" @mouseout="mouseleave()" @mouseleave="showByIndex = null" @mouseenter="showByIndex = index">
 					<div class="tags">
-						<p class="soon" v-if="!project.fields.isActive" v-show="showByIndex == index">soon</p>
 						<p :class="{'type':true, 'locked': !project.fields.isActive}">{{project.fields.category.fields.name}}</p>
 					</div>
 					<p @click="selectProject(index)" class="link" v-if='project.fields.isActive'>{{project.fields.title}}</p>
@@ -156,7 +155,6 @@ export default {
 	},
 	mounted () {
 		this.$store.dispatch('projects/fetchProjectsInfos')
-
 	},
 
 	updated (){

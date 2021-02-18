@@ -80,7 +80,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 4rem;
+				font-size: 50px;
 			}
 		}
 	}
